@@ -5,16 +5,14 @@ use App\Factories\CommentFactory;
 use App\Factories\UserFactory;
 use App\Types\CliArgumentTypes;
 
-switch ($argv[1]) {
-    case CliArgumentTypes::USER:
-        echo UserFactory::getInstance()->create();
-        break;
-    case CliArgumentTypes::ARTICLE:
-        echo ArticleFactory::getInstance()->create();
-        break;
-    case CliArgumentTypes::COMMENT:
-        echo CommentFactory::getInstance()->create();
-        break;
-    default:
-        http_response_code(404);
+try {
+    echo match ($argv[1])
+    {
+        CliArgumentTypes::USER => UserFactory::getInstance()->create(),
+        CliArgumentTypes::ARTICLE => ArticleFactory::getInstance()->create(),
+        CliArgumentTypes::COMMENT => CommentFactory::getInstance()->create(),
+    };
+}catch (UnhandledMatchError $e)
+{
+    var_dump($e->getMessage());
 }
