@@ -3,7 +3,8 @@
 namespace App\Factories;
 
 use App\Entities\EntityInterface;
-use App\Types\CliArgumentTypes;
+use App\Enums\Argument;
+use App\Exceptions\MatchException;
 
 class EntityFactory implements EntityFactoryInterface
 {
@@ -42,13 +43,17 @@ class EntityFactory implements EntityFactoryInterface
         return self::$instances[$class];
     }
 
+    /**
+     * @throws MatchException
+     */
     public function create(string $type): EntityInterface
     {
         return match ($type)
         {
-            CliArgumentTypes::USER => self::$userFactory->create(),
-            CliArgumentTypes::ARTICLE => self::$articleFactory->create(),
-            CliArgumentTypes::COMMENT => self::$commentFactory->create(),
+            Argument::USER->value => self::$userFactory->create(),
+            Argument::ARTICLE->value => self::$articleFactory->create(),
+            Argument::COMMENT->value => self::$commentFactory->create(),
+            default => throw new MatchException(sprintf("Аргумент должен содержать одно из перечисленных значений: %s.")),
         };
     }
 }

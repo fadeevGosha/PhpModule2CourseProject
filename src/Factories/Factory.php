@@ -4,14 +4,14 @@ namespace App\Factories;
 
 use App\Entities\EntityInterface;
 use Faker\Generator;
-use \Faker\Factory as FackerFactory;
+use \Faker\Factory as FakerFactory;
 
 abstract class Factory implements FactoryInterface
 {
-    protected  ?Generator $facker = null;
+    protected  ?Generator $faker = null;
 
-    public function __construct(Factory $facker = null) {
-        $this->facker = $facker ?? FackerFactory::create();
+    public function __construct(Factory $faker = null) {
+        $this->faker = $facker ?? FakerFactory::create();
     }
 
     abstract public function create():EntityInterface;

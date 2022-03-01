@@ -3,7 +3,6 @@
 namespace App\Entities\Article;
 
 use App\Entities\User\User;
-use App\Entity\Article\ArticleInterface;
 
 class Article implements ArticleInterface
 {

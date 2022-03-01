@@ -3,6 +3,7 @@
 namespace App\Factories;
 
 use App\Entities\Comment\Comment;
+use App\Entities\Comment\CommentInterface;
 
 final class CommentFactory extends Factory implements CommentFactoryInterface
 {
@@ -19,13 +20,13 @@ final class CommentFactory extends Factory implements CommentFactoryInterface
         parent::__construct();
     }
 
-    public function create(): Comment
+    public function create(): CommentInterface
     {
         return new Comment(
-            $this->facker->randomDigitNot(0),
+            $this->faker->randomDigitNot(0),
             $this->userFactory->create(),
             $this->articleFactory->create(),
-            $this->facker->text()
+            $this->faker->text()
         );
     }
 }

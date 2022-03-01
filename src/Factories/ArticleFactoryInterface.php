@@ -2,7 +2,7 @@
 
 namespace App\Factories;
 
-use App\Entity\Article\ArticleInterface;
+use App\Entities\Article\ArticleInterface;
 
 interface ArticleFactoryInterface extends FactoryInterface
 {

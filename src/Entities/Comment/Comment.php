@@ -3,7 +3,6 @@
 namespace App\Entities\Comment;
 
 use App\Entities\Article\Article;
-use App\Entities\Article\CommentInterface;
 use App\Entities\User\User;
 
 class Comment implements CommentInterface

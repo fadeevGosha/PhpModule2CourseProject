@@ -3,6 +3,7 @@
 namespace App\Factories;
 
 use App\Entities\Article\Article;
+use App\Entities\Article\ArticleInterface;
 
 final class ArticleFactory extends Factory implements ArticleFactoryInterface
 {
@@ -16,13 +17,13 @@ final class ArticleFactory extends Factory implements ArticleFactoryInterface
         parent::__construct();
     }
 
-    public function create() : Article
+    public function create() : ArticleInterface
     {
         return new Article(
-            $this->facker->randomDigitNot(0),
+            $this->faker->randomDigitNot(0),
             $this->userFactory->create(),
-            $this->facker->title(),
-            $this->facker->text(),
+            $this->faker->title(),
+            $this->faker->text(),
         );
     }
 }

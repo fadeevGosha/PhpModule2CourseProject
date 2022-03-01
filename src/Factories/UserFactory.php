@@ -10,9 +10,9 @@ final class UserFactory extends Factory implements UserFactoryInterface
     public function create(): UserInterface
     {
         return new User(
-            $this->facker->randomDigitNot(0),
-            $this->facker->firstName(),
-            $this->facker->lastName(),
+            $this->faker->randomDigitNot(0),
+            $this->faker->firstName(),
+            $this->faker->lastName(),
         );
     }
 }
