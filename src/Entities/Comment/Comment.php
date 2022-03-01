@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Comment;
+namespace App\Entities\Comment;
 
-use App\Article\Article;
-use App\User\User;
+use App\Entities\Article\Article;
+use App\Entities\Article\CommentInterface;
+use App\Entities\User\User;
 
-class Comment
+class Comment implements CommentInterface
 {
     public function __construct(
         private int $id,

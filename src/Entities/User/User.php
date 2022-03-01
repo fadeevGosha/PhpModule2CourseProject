@@ -1,8 +1,8 @@
 <?php
 
-namespace App\User;
+namespace App\Entities\User;
 
-class User
+class User implements UserInterface
 {
     public function __construct(
         private int $id,

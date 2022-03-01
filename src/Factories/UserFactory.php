@@ -2,16 +2,17 @@
 
 namespace App\Factories;
 
-use App\User\User;
+use App\Entities\User\User;
+use App\Entities\User\UserInterface;
 
-final class UserFactory extends Factory
+final class UserFactory extends Factory implements UserFactoryInterface
 {
-    public function create(): User
+    public function create(): UserInterface
     {
         return new User(
-            self::$facker->randomDigitNot(0),
-            self::$facker->firstName(),
-            self::$facker->lastName(),
+            $this->facker->randomDigitNot(0),
+            $this->facker->firstName(),
+            $this->facker->lastName(),
         );
     }
 }

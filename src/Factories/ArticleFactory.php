@@ -2,17 +2,27 @@
 
 namespace App\Factories;
 
-use App\Article\Article;
+use App\Entities\Article\Article;
 
-final class ArticleFactory extends Factory
+final class ArticleFactory extends Factory implements ArticleFactoryInterface
 {
-    public function create():Article
+    private UserFactoryInterface $userFactory;
+
+    public function __construct(
+        UserFactoryInterface $userFactory
+    )
+    {
+        $this->userFactory = $userFactory;
+        parent::__construct();
+    }
+
+    public function create() : Article
     {
         return new Article(
-            self::$facker->randomDigitNot(0),
-            UserFactory::getInstance()->create(),
-            self::$facker->title(),
-            self::$facker->text(),
+            $this->facker->randomDigitNot(0),
+            $this->userFactory->create(),
+            $this->facker->title(),
+            $this->facker->text(),
         );
     }
 }

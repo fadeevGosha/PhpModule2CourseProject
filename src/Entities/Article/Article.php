@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Article;
+namespace App\Entities\Article;
 
-use App\User\User;
+use App\Entities\User\User;
+use App\Entity\Article\ArticleInterface;
 
-class Article
+class Article implements ArticleInterface
 {
     public function __construct(
         private int $id,
