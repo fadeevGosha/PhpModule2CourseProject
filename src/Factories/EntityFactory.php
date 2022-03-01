@@ -53,7 +53,12 @@ class EntityFactory implements EntityFactoryInterface
             Argument::USER->value => self::$userFactory->create(),
             Argument::ARTICLE->value => self::$articleFactory->create(),
             Argument::COMMENT->value => self::$commentFactory->create(),
-            default => throw new MatchException(sprintf("Аргумент должен содержать одно из перечисленных значений: %s.")),
+            default => throw new MatchException(
+                sprintf(
+                    "Аргумент должен содержать одно из перечисленных значений: '%s'.",
+                    implode("', '", array_map(fn (Argument $argument) => $argument->value, Argument::ARGUMENTS))
+                )
+            )
         };
     }
 }
