@@ -3,7 +3,7 @@
 use App\Factories\EntityFactory;
 
 try {
-    echo new EntityFactory($argv[1]);
+    echo EntityFactory::getInstance()->create($argv[1]);
 }catch (UnhandledMatchError $e)
 {
     var_dump($e->getMessage());
