@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Entities\User\User;
+use App\Exceptions\UserNotFoundException;
 
 class MemoryUserRepository implements MemoryUserRepositoryInterface
 {
@@ -15,6 +16,11 @@ class MemoryUserRepository implements MemoryUserRepositoryInterface
 
     public function get(int $id):User
     {
+        if(!in_array($id, array_keys($this->users)))
+        {
+            throw new UserNotFoundException('User not found');
+        }
+
         return $this->users[$id];
     }
 }
