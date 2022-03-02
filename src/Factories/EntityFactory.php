@@ -24,13 +24,14 @@ class EntityFactory implements EntityFactoryInterface
         self::$commentFactory = $commentFactory ?? new CommentFactory(self::$userFactory, self::$articleFactory);
     }
 
+
     public static function getInstance(
         UserFactoryInterface $userFactory = null,
         ArticleFactoryInterface $articleFactory = null,
         CommentFactoryInterface $commentFactory = null
     ): EntityFactoryInterface
     {
-        $class = static::class;
+        $class = static::class;//MyEntityFactory
         if (!isset(self::$instances[$class])) {
             self::$instances[$class] =
                 new static(

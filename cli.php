@@ -1,11 +1,22 @@
 <?php
 
-use App\Exceptions\MatchException;
+use App\Enums\Argument;
 use App\Factories\EntityFactory;
+use App\Factories\RepositoryFactory;
 
-try {
-    echo EntityFactory::getInstance()->create($argv[1]);
-}catch (MatchException $e)
-{
-    var_dump($e->getMessage());
-}
+$user = EntityFactory::getInstance()->create(Argument::USER->value);
+echo $user;
+$factory = new RepositoryFactory();
+$entityRepository = $factory->create($user);
+
+$entityRepository->save($user);
+$entityRepository->get($user->getId());
+
+
+$connection = new PDO('sqlite:' . __DIR__ . '/blog.sqlite');
+
+//Вставляем строку в таблицу пользователей
+$connection->exec(
+    "INSERT INTO users (first_name, last_name) VALUES ('Ivan', 'Nikitin')"
+);
+
