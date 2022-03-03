@@ -4,6 +4,6 @@ namespace App\Entities;
 
 interface EntityInterface
 {
-    public function getId(): int;
+    public function getId(): ?int;
     public function __toString(): string;
 }

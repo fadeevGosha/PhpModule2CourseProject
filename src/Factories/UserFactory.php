@@ -2,17 +2,19 @@
 
 namespace App\Factories;
 
+use App\Decorator\UserDecorator;
 use App\Entities\User\User;
 use App\Entities\User\UserInterface;
+use JetBrains\PhpStorm\Pure;
 
-final class UserFactory extends Factory implements UserFactoryInterface
+final class UserFactory implements UserFactoryInterface
 {
-    public function create(): UserInterface
+    #[Pure] public function create(UserDecorator $userDecorator): UserInterface
     {
         return new User(
-            $this->faker->randomDigitNot(0),
-            $this->faker->firstName(),
-            $this->faker->lastName(),
+            $userDecorator->firstName,
+            $userDecorator->lastName,
+            $userDecorator->email,
         );
     }
 }

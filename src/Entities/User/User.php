@@ -4,13 +4,15 @@ namespace App\Entities\User;
 
 class User implements UserInterface
 {
+    private ?int $id = null;
+
     public function __construct(
-        private int $id,
         private string $firstName,
-        private string $lastName
+        private string $lastName,
+        private string $email
     ) {}
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -25,13 +27,19 @@ class User implements UserInterface
         return $this->lastName;
     }
 
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
     public function __toString(): string
     {
         return sprintf(
-            "[%d] %s %s",
+            "[%d] %s %s %s",
             $this->getId(),
             $this->getFirstName(),
-            $this->getLastName()
+            $this->getLastName(),
+            $this->getEmail()
         );
     }
 }

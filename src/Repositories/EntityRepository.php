@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Factories;
+namespace App\Repositories;
 
 use App\Connections\ConnectorInterface;
 use App\Entities\EntityInterface;
-use App\Entities\User\User;
-use App\Repositories\EntityRepositoryInterface;
 
 abstract class EntityRepository implements EntityRepositoryInterface
 {

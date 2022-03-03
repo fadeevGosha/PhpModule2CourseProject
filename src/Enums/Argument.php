@@ -10,4 +10,13 @@ enum Argument:string
 
     public const ARGUMENTS = [Argument::USER, Argument::ARTICLE, Argument::COMMENT];
 
+    public static function getArgumentValues(): array
+    {
+        return [
+            Argument::USER->value,
+            Argument::ARTICLE->value,
+            Argument::COMMENT->value
+        ];
+    }
+
 }

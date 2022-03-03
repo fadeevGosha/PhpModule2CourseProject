@@ -2,11 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Connections\ConnectorInterface;
 use App\Entities\EntityInterface;
 use App\Entities\User\User;
 use App\Exceptions\UserNotFoundException;
-use App\Factories\EntityRepository;
 use PDO;
 use PDOStatement;
 
@@ -18,17 +16,18 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
      */
     public function save(EntityInterface $entity):void
     {
-
         /**
          * @var User $entity
          */
         $statement =  $this->connector->getConnection()
-            ->prepare("INSERT INTO users (first_name, last_name) VALUES (:first_name, :last_name)");
+            ->prepare("INSERT INTO users (first_name, last_name, email) 
+                VALUES (:first_name, :last_name, :email)");
 
         $statement->execute(
             [
-                ':firstName' => $entity->getFirstName(),
+                ':first_name' => $entity->getFirstName(),
                 ':last_name' => $entity->getLastName(),
+                ':email' => $entity->getEmail(),
             ]
         );
     }
@@ -46,21 +45,20 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
             ':id' => (string)$id,
         ]);
 
-        return $this->getUser($statement, $user);
+        return $this->getUser($statement, $id);
     }
 
     /**
      * @throws UserNotFoundException
      */
-    private function getUser(PDOStatement $statement, User $user): User
+    private function getUser(PDOStatement $statement, int $userId): User
     {
         $result = $statement->fetch(PDO::FETCH_ASSOC);
-
         if (false === $result) {
             throw new UserNotFoundException(
-                sprintf("Cannot find user: %s %s", $user->getFirstName(), $user->getLastName()));
+                sprintf("Cannot find user with id: %s", $userId));
         }
 
-        return $user;
+        return new User($result['first_name'], $result['last_name'], $result['email']);
     }
 }

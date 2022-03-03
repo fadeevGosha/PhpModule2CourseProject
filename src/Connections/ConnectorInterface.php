@@ -6,10 +6,5 @@ use PDO;
 
 interface ConnectorInterface
 {
-    public function getConnection(
-        $dsn,
-        $username = null,
-        $password = null,
-        $options = null
-    ):PDO;
+    public function getConnection(): PDO;
 }

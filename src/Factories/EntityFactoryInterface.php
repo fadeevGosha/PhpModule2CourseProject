@@ -6,5 +6,5 @@ use App\Entities\EntityInterface;
 
 interface EntityFactoryInterface
 {
-    public function create(string $type): EntityInterface;
+    public function create(string $entityType, array $arguments): EntityInterface;
 }

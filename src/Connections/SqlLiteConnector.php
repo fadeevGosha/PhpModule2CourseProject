@@ -11,4 +11,19 @@ class SqlLiteConnector extends Connector implements SqlLiteConnectorInterface
     {
         return SqlLiteConfig::DSN;
     }
+
+    public function getUserName(): string
+    {
+       return '';
+    }
+
+    public function getPassword(): string
+    {
+        return '';
+    }
+
+    public function getOptions(): array
+    {
+        return [];
+    }
 }

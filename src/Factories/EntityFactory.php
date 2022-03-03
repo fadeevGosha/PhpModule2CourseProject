@@ -2,58 +2,42 @@
 
 namespace App\Factories;
 
+use App\Decorator\UserDecorator;
 use App\Entities\EntityInterface;
 use App\Enums\Argument;
+use App\Exceptions\ArgumentException;
+use App\Exceptions\CommandException;
 use App\Exceptions\MatchException;
 
 class EntityFactory implements EntityFactoryInterface
 {
-    private static UserFactoryInterface $userFactory;
-    private static ArticleFactoryInterface $articleFactory;
-    private static CommentFactoryInterface $commentFactory;
-    private static array $instances = [];
+    private ?UserFactoryInterface $userFactory;
+    private ?ArticleFactoryInterface $articleFactory;
+    private ?CommentFactoryInterface $commentFactory;
 
-    private function __construct(
+    public function __construct(
         UserFactoryInterface $userFactory = null,
         ArticleFactoryInterface $articleFactory = null,
         CommentFactoryInterface $commentFactory = null
     )
     {
-        self::$userFactory = $userFactory ?? new UserFactory();
-        self::$articleFactory = $articleFactory ?? new ArticleFactory(self::$userFactory);
-        self::$commentFactory = $commentFactory ?? new CommentFactory(self::$userFactory, self::$articleFactory);
-    }
-
-
-    public static function getInstance(
-        UserFactoryInterface $userFactory = null,
-        ArticleFactoryInterface $articleFactory = null,
-        CommentFactoryInterface $commentFactory = null
-    ): EntityFactoryInterface
-    {
-        $class = static::class;//MyEntityFactory
-        if (!isset(self::$instances[$class])) {
-            self::$instances[$class] =
-                new static(
-                    $userFactory,
-                    $articleFactory,
-                    $commentFactory
-            );
-        }
-
-        return self::$instances[$class];
+        $this->userFactory = $userFactory ?? new UserFactory();
+        $this->articleFactory = $articleFactory ?? new ArticleFactory();
+        $this->commentFactory = $commentFactory ?? new CommentFactory();;
     }
 
     /**
      * @throws MatchException
+     * @throws CommandException
+     * @throws ArgumentException
      */
-    public function create(string $type): EntityInterface
+    public function create(string $entityType, array $arguments): EntityInterface
     {
-        return match ($type)
+        return match ($entityType)
         {
-            Argument::USER->value => self::$userFactory->create(),
-            Argument::ARTICLE->value => self::$articleFactory->create(),
-            Argument::COMMENT->value => self::$commentFactory->create(),
+            Argument::USER->value => $this->userFactory->create(new UserDecorator($arguments)),
+//            Argument::ARTICLE->value => $this->articleFactory->create(new ArticleDecorator($arguments)),
+//             Argument::COMMENT->value => $this->articleFactory->create(new CommentDecorator($arguments)),
             default => throw new MatchException(
                 sprintf(
                     "Аргумент должен содержать одно из перечисленных значений: '%s'.",

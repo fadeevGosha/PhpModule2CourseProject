@@ -2,18 +2,19 @@
 
 namespace App\Factories;
 
-use App\Entities\EntityInterface;
-
-use \Faker\Factory as FakerFactory;
-use Faker\Generator;
-
-abstract class Factory implements FactoryInterface
+class Factory implements FactoryInterface
 {
-    protected ?Generator $faker = null;
+    protected static array $instances = [];
+    private function __construct(){}
 
-    public function __construct(?FakerFactory $faker = null) {
-        $this->faker = $facker ?? FakerFactory::create();
+    public static function getInstance(): self
+    {
+        $class = static::class;
+        if (!isset(self::$instances[$class])) {
+            self::$instances[$class] =
+                new static();
+        }
+
+        return self::$instances[$class];
     }
-
-    abstract public function create():EntityInterface;
 }

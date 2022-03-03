@@ -3,10 +3,10 @@
 namespace App\Factories;
 
 use App\Connections\ConnectorInterface;
-use App\Entities\Article\Article;
+use App\Connections\SqlLiteConnector;
 use App\Entities\EntityInterface;
 use App\Entities\User\User;
-use App\Repositories\MemoryUserRepository;
+use App\Repositories\EntityRepositoryInterface;
 use App\Repositories\UserRepository;
 use JetBrains\PhpStorm\Pure;
 
@@ -14,17 +14,18 @@ class RepositoryFactory implements RepositoryFactoryInterface
 {
     private ConnectorInterface $connector;
 
-    public function __construct(ConnectorInterface $connector)
+    #[Pure] public function __construct(ConnectorInterface $connector = null)
     {
-        $this->connector = $connector;
+        $this->connector = $connector ?? new SqlLiteConnector();
     }
 
-    #[Pure] public function create(EntityInterface $entity): EntityInterface
+    #[Pure] public function create(EntityInterface $entity): EntityRepositoryInterface
     {
         return match ($entity::class)
         {
             User::class => new UserRepository($this->connector),
-            //из вашего дз
+            //Article::class => $this->createArticleRepository(),
         };
     }
+
 }
