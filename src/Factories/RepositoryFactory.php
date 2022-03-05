@@ -24,7 +24,8 @@ class RepositoryFactory implements RepositoryFactoryInterface
         return match ($entity::class)
         {
             User::class => new UserRepository($this->connector),
-            //Article::class => $this->createArticleRepository(),
+            //Article::class => new ArticleRepository($this->connector),
+            //Comment::class => new CommentRepository($this->connector),
         };
     }
 

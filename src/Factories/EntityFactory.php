@@ -8,6 +8,7 @@ use App\Enums\Argument;
 use App\Exceptions\ArgumentException;
 use App\Exceptions\CommandException;
 use App\Exceptions\MatchException;
+use JetBrains\PhpStorm\Pure;
 
 class EntityFactory implements EntityFactoryInterface
 {
@@ -15,7 +16,7 @@ class EntityFactory implements EntityFactoryInterface
     private ?ArticleFactoryInterface $articleFactory;
     private ?CommentFactoryInterface $commentFactory;
 
-    public function __construct(
+    #[Pure] public function __construct(
         UserFactoryInterface $userFactory = null,
         ArticleFactoryInterface $articleFactory = null,
         CommentFactoryInterface $commentFactory = null
@@ -36,8 +37,9 @@ class EntityFactory implements EntityFactoryInterface
         return match ($entityType)
         {
             Argument::USER->value => $this->userFactory->create(new UserDecorator($arguments)),
-//            Argument::ARTICLE->value => $this->articleFactory->create(new ArticleDecorator($arguments)),
-//             Argument::COMMENT->value => $this->articleFactory->create(new CommentDecorator($arguments)),
+//            Argument::ARTICLE->value => $this->articleFactory->create(new ArticleDecorator($arguments)), сделать свой декоратор
+//          похожий на userdecorator, для article и comment. и добавить реализацию в articlefactory и commentfactory на основе UserFactory
+//             Argument::COMMENT->value => $this->commentFactory->create(new CommentDecorator($arguments)),
             default => throw new MatchException(
                 sprintf(
                     "Аргумент должен содержать одно из перечисленных значений: '%s'.",

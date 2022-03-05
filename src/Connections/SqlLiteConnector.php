@@ -2,7 +2,6 @@
 
 namespace App\Connections;
 
-
 use App\config\SqlLiteConfig;
 
 class SqlLiteConnector extends Connector implements SqlLiteConnectorInterface
