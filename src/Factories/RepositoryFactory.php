@@ -19,9 +19,9 @@ class RepositoryFactory implements RepositoryFactoryInterface
         $this->connector = $connector ?? new SqlLiteConnector();
     }
 
-    #[Pure] public function create(EntityInterface $entity): EntityRepositoryInterface
+    #[Pure] public function create(string $entityType): EntityRepositoryInterface
     {
-        return match ($entity::class)
+        return match ($entityType)
         {
             User::class => new UserRepository($this->connector),
             //Article::class => new ArticleRepository($this->connector),
