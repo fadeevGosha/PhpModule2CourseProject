@@ -24,8 +24,6 @@ class UserDecorator extends Decorator implements DecoratorInterface
         self::EMAIL
     ];
 
-    private ?ArgumentParserServiceInterface $argumentParserService;
-
     /**
      * @throws ArgumentException
      * @throws CommandException

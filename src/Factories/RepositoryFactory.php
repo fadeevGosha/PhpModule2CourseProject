@@ -4,7 +4,6 @@ namespace App\Factories;
 
 use App\Connections\ConnectorInterface;
 use App\Connections\SqlLiteConnector;
-use App\Entities\EntityInterface;
 use App\Entities\User\User;
 use App\Repositories\EntityRepositoryInterface;
 use App\Repositories\UserRepository;
