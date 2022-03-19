@@ -4,7 +4,6 @@ namespace App\Decorator;
 
 use App\Exceptions\ArgumentException;
 use App\Exceptions\CommandException;
-use App\Services\ArgumentParserServiceInterface;
 
 class UserDecorator extends Decorator implements DecoratorInterface
 {
@@ -31,6 +30,7 @@ class UserDecorator extends Decorator implements DecoratorInterface
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
+
         $userFieldData = $this->getFieldData();
 
         $this->id = $userFieldData->get(self::ID) ?? null;

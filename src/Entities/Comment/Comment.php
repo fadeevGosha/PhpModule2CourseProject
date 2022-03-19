@@ -7,6 +7,8 @@ use App\Entities\User\User;
 
 class Comment implements CommentInterface
 {
+    public const TABLE_NAME = 'Comment';
+
     public function __construct(
         private int $id,
         private User $author,
@@ -43,5 +45,10 @@ class Comment implements CommentInterface
             $this->getArticle(),
             $this->getText(),
         );
+    }
+
+    public function getTableName(): string
+    {
+        return static::TABLE_NAME;
     }
 }

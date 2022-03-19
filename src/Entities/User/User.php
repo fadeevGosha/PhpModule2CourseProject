@@ -4,6 +4,8 @@ namespace App\Entities\User;
 
 class User implements UserInterface
 {
+    public const TABLE_NAME = 'User';
+
     private ?int $id = null;
 
     public function __construct(
@@ -41,5 +43,10 @@ class User implements UserInterface
             $this->getLastName(),
             $this->getEmail()
         );
+    }
+
+    public function getTableName(): string
+    {
+        return static::TABLE_NAME;
     }
 }

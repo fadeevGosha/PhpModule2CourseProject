@@ -6,6 +6,8 @@ use App\Entities\User\User;
 
 class Article implements ArticleInterface
 {
+    public const TABLE_NAME = 'Article';
+
     public function __construct(
         private int $id,
         private User $author,
@@ -42,5 +44,10 @@ class Article implements ArticleInterface
             $this->getTitle(),
             $this->getText(),
         );
+    }
+
+    public function getTableName(): string
+    {
+        return static::TABLE_NAME;
     }
 }

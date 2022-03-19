@@ -6,6 +6,8 @@ use App\Entities\EntityInterface;
 use App\Exceptions\ArgumentException;
 use App\Exceptions\CommandException;
 use App\Exceptions\MatchException;
+use App\Managers\EntityManager;
+use App\Managers\EntityManagerInterface;
 use App\Repositories\EntityRepositoryInterface;
 
 class EntityManagerFactory extends Factory implements EntityManagerFactoryInterface
@@ -55,5 +57,10 @@ class EntityManagerFactory extends Factory implements EntityManagerFactoryInterf
     public function getRepositoryByInputArguments(array $arguments): EntityRepositoryInterface
     {
         return $this->getRepository($this->createEntityByInputArguments($arguments));
+    }
+
+    public function getEntityManager(): EntityManagerInterface
+    {
+        return new EntityManager();
     }
 }

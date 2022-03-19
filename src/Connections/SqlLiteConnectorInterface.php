@@ -2,4 +2,4 @@
 
 namespace App\Connections;
 
-interface SqlLiteConnectorInterface extends ConnectorInterface{}
+interface SqlLiteConnectorInterface{}
