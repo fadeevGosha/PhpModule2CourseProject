@@ -35,6 +35,22 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
     /**
      * @throws UserNotFoundException
      */
+    public function getUserByEmail(string $email): User
+    {
+        $statement = $this->connection->prepare(
+            'SELECT * FROM User WHERE email = :email'
+        );
+
+        $statement->execute([
+            ':email' => $email,
+        ]);
+
+        return $this->getUser($statement);
+    }
+
+    /**
+     * @throws UserNotFoundException
+     */
     public function get(int $id): User
     {
         $statement = $this->connector->getConnection()->prepare(
@@ -45,18 +61,18 @@ class UserRepository extends EntityRepository implements UserRepositoryInterface
             ':id' => (string)$id,
         ]);
 
-        return $this->getUser($statement, $id);
+        return $this->getUser($statement);
     }
 
     /**
      * @throws UserNotFoundException
      */
-    private function getUser(PDOStatement $statement, int $userId): User
+    private function getUser(PDOStatement $statement): User
     {
         $result = $statement->fetch(PDO::FETCH_ASSOC);
-        if (false === $result) {
+        if (!$result) {
             throw new UserNotFoundException(
-                sprintf("Cannot find user with id: %s", $userId));
+                sprintf("Cannot find user"));
         }
 
         return new User($result['first_name'], $result['last_name'], $result['email']);

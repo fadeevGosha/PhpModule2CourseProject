@@ -18,14 +18,14 @@ class ArgumentParserService implements ArgumentParserServiceInterface
 
     public function parseRawInput(
         iterable $rawInput,
-        array $scheme
+        array $scheme = []
     ): Argument
     {
         foreach ($rawInput as $argument) {
             $arguments = explode('=', $argument);
 
             if (count($arguments) !== 2) {
-                throw new ArgumentException('Неверные параметры');
+                throw new ArgumentException('Параметры должны быть в формате fieldName=fieldValue');
             }
 
             if(!empty($arguments[0]) && !empty($arguments[1]))
