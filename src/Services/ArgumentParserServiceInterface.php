@@ -11,6 +11,6 @@ interface ArgumentParserServiceInterface
      */
     public function parseRawInput(
         array $rawInput,
-        array $scheme
+        array $scheme = []
     ): Argument;
 }

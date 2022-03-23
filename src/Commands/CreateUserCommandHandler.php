@@ -15,8 +15,7 @@ class CreateUserCommandHandler implements CommandHandlerInterface
 
     public function __construct(
         private UserRepositoryInterface $userRepository,
-        private ConnectorInterface $connector
-    )
+        private ?ConnectorInterface $connector = null)
     {
         $this->connector = $connector ?? new SqlLiteConnector();
         $this->stmt = $this->connector->getConnection()->prepare($this->getSQL());
@@ -33,6 +32,7 @@ class CreateUserCommandHandler implements CommandHandlerInterface
          */
         $user = $command->getEntity();
         $email = $user->getEmail();
+
 
         if(!$this->isUserExists($email))
         {

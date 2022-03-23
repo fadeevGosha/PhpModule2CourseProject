@@ -13,18 +13,16 @@ class RepositoryFactory implements RepositoryFactoryInterface
 {
     private ConnectorInterface $connector;
 
-    #[Pure] public function __construct(ConnectorInterface $connector = null)
+    public function __construct(ConnectorInterface $connector = null)
     {
         $this->connector = $connector ?? new SqlLiteConnector();
     }
 
-    #[Pure] public function create(string $entityType): EntityRepositoryInterface
+    public function create(string $entityType): EntityRepositoryInterface
     {
         return match ($entityType)
         {
             User::class => new UserRepository($this->connector),
-            //Article::class => new ArticleRepository($this->connector),
-            //Comment::class => new CommentRepository($this->connector),
         };
     }
 

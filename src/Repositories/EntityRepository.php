@@ -8,15 +8,12 @@ use App\Entities\EntityInterface;
 
 abstract class EntityRepository implements EntityRepositoryInterface
 {
-    protected ConnectorInterface $connector;
-    protected  Connection $connection;
+    protected Connection $connection;
 
     public function __construct(ConnectorInterface $connector)
     {
-        $this->connector = $connector;
-        $this->connection =  $this->connector->getConnection();
+        $this->connection = $connector->getConnection();
     }
 
-    abstract public function save(EntityInterface $entity):void;
     abstract public function get(int  $id): EntityInterface;
 }

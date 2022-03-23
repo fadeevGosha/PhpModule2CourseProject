@@ -19,6 +19,6 @@
         "fakerphp/faker": "^1.19"
     },
     "scripts": {
-        "test": "phpunit test --testdox --colors"
+        "test": "phpunit Tests --testdox --colors"
     }
 }

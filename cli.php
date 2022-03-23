@@ -1,10 +1,11 @@
 <?php
 
-use App\Commands\CreateCommand;
+use App\Entities\User\User;
 use App\Enums\Argument;
 use App\Exceptions\NotFoundException;
 use App\Factories\EntityManagerFactory;
 use App\Factories\EntityManagerFactoryInterface;
+use App\Repositories\UserRepositoryInterface;
 
 try {
     if(count($argv) < 2)
@@ -19,11 +20,20 @@ try {
     /**
      * @var EntityManagerFactoryInterface $entityMangerFactory
      */
-    $entityMangerFactory = EntityManagerFactory::getInstance();
+    $entityMangerFactory = new EntityManagerFactory();
+    $entity =  $entityMangerFactory->createEntityByInputArguments($argv);
+    if($entity instanceof User)
+    {
+        /**
+         * @var UserRepositoryInterface $repository
+         */
+        $repository = $entityMangerFactory->getRepository($entity::class);
 
-    $command = new CreateCommand($entityMangerFactory->getEntityManager());
-    $command->handle($entityMangerFactory->createEntityByInputArguments($argv));
-
+        if(!$repository->getUserByEmail($entity->getEmail()))
+        {
+            $entityMangerFactory->getEntityManager()->create($entity);
+        }
+    }
 }catch (Exception $exception)
 {
     echo $exception->getMessage().PHP_EOL;
@@ -31,4 +41,15 @@ try {
 }
 
 
+
+
+$object = new class
+{
+    public function sayHello(string $name)
+    {
+        echo "Hello, $name";
+    }
+};
+
+$object->sayHello('Ivan');
 

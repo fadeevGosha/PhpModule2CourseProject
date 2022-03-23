@@ -2,26 +2,16 @@
 
 namespace App\Decorator;
 
+use App\Enums\User;
 use App\Exceptions\ArgumentException;
 use App\Exceptions\CommandException;
 
 class UserDecorator extends Decorator implements DecoratorInterface
 {
-    public const ID = 'id';
-    public const FIRST_NAME = 'firstName';
-    public const LAST_NAME = 'lastName';
-    public const EMAIL = 'email';
-
-    public ?int $id = null;
-    public string $firstName;
-    public string $lastName;
-    public string $email;
-
-    public const REQUIRED_FIELDS = [
-        self::FIRST_NAME,
-        self::LAST_NAME,
-        self::EMAIL
-    ];
+    public ?string $id;
+    public ?string $firstName;
+    public ?string $lastName;
+    public ?string $email;
 
     /**
      * @throws ArgumentException
@@ -33,14 +23,14 @@ class UserDecorator extends Decorator implements DecoratorInterface
 
         $userFieldData = $this->getFieldData();
 
-        $this->id = $userFieldData->get(self::ID) ?? null;
-        $this->firstName = $userFieldData->get(self::FIRST_NAME) ?? null;
-        $this->lastName = $userFieldData->get( self::LAST_NAME) ?? null;
-        $this->email = $userFieldData->get( self::EMAIL) ?? null;
+        $this->id = $userFieldData->get(User::ID->value) ?? null;
+        $this->firstName = $userFieldData->get(User::FIRST_NAME->value) ?? null;
+        $this->lastName = $userFieldData->get( User::LAST_NAME->value) ?? null;
+        $this->email = $userFieldData->get(User::EMAIL->value) ?? null;
     }
 
     public function getRequiredFields(): array
     {
-       return static::REQUIRED_FIELDS;
+       return User::getRequiredFields();
     }
 }
