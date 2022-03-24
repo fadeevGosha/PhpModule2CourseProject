@@ -10,12 +10,12 @@ use App\Managers\EntityManager;
 use App\Managers\EntityManagerInterface;
 use App\Repositories\EntityRepositoryInterface;
 
-class EntityManagerFactory extends Factory implements EntityManagerFactoryInterface
+class EntityManagerFactory implements EntityManagerFactoryInterface
 {
     private ?EntityFactoryInterface $entityFactory;
     private ?RepositoryFactoryInterface $repositoryFactory;
 
-    protected function __construct(
+    public function __construct(
         EntityFactoryInterface $entityFactory = null,
         RepositoryFactoryInterface $repositoryFactory = null
     )
@@ -34,9 +34,9 @@ class EntityManagerFactory extends Factory implements EntityManagerFactoryInterf
         return $this->entityFactory->create($entityType, $arguments);
     }
 
-    public function getRepository(EntityInterface $entity): EntityRepositoryInterface
+    public function getRepository(string $entityType): EntityRepositoryInterface
     {
-        return $this->repositoryFactory->create($entity);
+        return $this->repositoryFactory->create($entityType);
     }
 
     /**
@@ -56,7 +56,7 @@ class EntityManagerFactory extends Factory implements EntityManagerFactoryInterf
      */
     public function getRepositoryByInputArguments(array $arguments): EntityRepositoryInterface
     {
-        return $this->getRepository($this->createEntityByInputArguments($arguments));
+        return $this->getRepository($this->createEntityByInputArguments($arguments)::class);
     }
 
     public function getEntityManager(): EntityManagerInterface
