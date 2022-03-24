@@ -5,31 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f9acac5-2a28-4cb5-a5bd-3a9b8382b075" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/course.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/course.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/СourseWork.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli.php" beforeDir="false" afterPath="$PROJECT_DIR$/cli.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geekbrains.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/geekbrains.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/CreateUserCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/CreateUserCommandHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Decorator/UserDecorator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Decorator/UserDecorator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factories/EntityManagerFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factories/EntityManagerFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factories/EntityManagerFactoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factories/EntityManagerFactoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factories/RepositoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factories/RepositoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Managers/EntityManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Managers/EntityManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Managers/EntityManagerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Managers/EntityManagerInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/EntityRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/EntityRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/EntityRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/EntityRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/UserRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/UserRepositoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/ArgumentParserServiceInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/ArgumentParserServiceInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Commands/CreateUserCommandTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/HelloTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Services/ArgumentParserServiceTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +33,11 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="127.0.0.1" id="1b54daad-9381-46dd-86e0-61e60c49cf81" name="127.0.0.1" port="8000" />
+    </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
