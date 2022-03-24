@@ -1,0 +1,212 @@
+GET http://127.0.0.1:8000/user/create
+
+{
+"firstName":"Georgii",
+"lastName":"Fadeev",
+"email":"fadeev222222222222222@start2play.ru"
+}
+
+<> 2022-03-24T090031.200.json
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+"firstName":"Georgii",
+"lastName":"Fadeev",
+"email":"fadeev222222222222222@start2play.ru"
+}
+
+<> 2022-03-24T085921.200.json
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+"firstName":"Georgii",
+"lastName":"Fadeev",
+"email":"fadeev22222222222222@start2play.ru"
+}
+
+<> 2022-03-24T085909.200.json
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+"firstName":"Georgii",
+"lastName":"Fadeev",
+"email":"fadeev22222222222222@start2play.ru"
+}
+
+<> 2022-03-24T085750.200.json
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+"firstName":"Georgii",
+"lastName":"Fadeev",
+"email":"fadeev22222222222222@start2play.ru"
+}
+
+<> 2022-03-24T085707.200.json
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+"firstName":"Georgii",
+"lastName":"Fadeev",
+"email":"fadeev22222222222222@start2play.ru"
+}
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+"firstName":"Georgii",
+"lastName":"Fadeev",
+"email":"fadeev22222222222222@start2play.ru"
+}
+
+###
+
+GET http://127.0.0.1:8000/user/show?email=fadeev@start2play.ru
+
+<> 2022-03-24T083236.200.json
+
+###
+
+GET http://127.0.0.1:8000/user/show?email=fadeev@start2play.ru
+
+<> 2022-03-24T083223.200.json
+
+###
+
+GET http://127.0.0.1:8000/users/show?email=fadeev@start2play.ru
+
+<> 2022-03-24T083048.200.json
+
+###
+
+GET http://127.0.0.1:8000/users/show?email=fadeev@start2play.ru
+
+<> 2022-03-24T083017.200.json
+
+###
+
+GET http://127.0.0.1:8000/users/show?email=fadeev@start2play.ru
+
+<> 2022-03-24T082917.200.json
+
+###
+
+GET http://127.0.0.1:8000/users/show?email=fadeev@start2play.ru
+
+<> 2022-03-24T082903.200.json
+
+###
+
+GET http://127.0.0.1:8000/users/show?email=fadeev@start2play.ru
+
+<> 2022-03-24T082807.200.json
+
+###
+
+GET http://127.0.0.1:8000/some/path?some_parameter=123
+Some-Header: Some Value
+
+<> 2022-03-24T080004.200.json
+
+###
+
+GET http://127.0.0.1:8000/some/path?some_parameter=123
+Some-Header: Some Value
+
+<> 2022-03-24T073253.200.json
+
+###
+
+GET http://127.0.0.1:8000/some/path?some_parameter=123
+Some-Header: Some Value
+
+<> 2022-03-24T072628.200.html
+
+###
+
+GET http://127.0.0.1:8000
+
+<> 2022-03-24T071243.200.html
+
+###
+
+GET http://127.0.0.1:8000
+
+<> 2022-03-24T071214.200.html
+
+###
+
+GET http://127.0.0.1:8000
+
+###
+
+GET http://127.0.0.1:8000
+
+###
+
+GET http://127.0.0.1:8000
+
+###
+
+GET http://127.0.0.1:8000
+
+<> 2022-03-23T093513.201.html
+
+###
+
+GET http://127.0.0.1:8000
+
+<> 2022-03-23T093502.201.html
+
+###
+
+GET http://127.0.0.1:8000
+
+<> 2022-03-23T093331.201.html
+
+###
+
+GET http://127.0.0.1:8000
+
+<> 2022-03-23T093323.201.html
+
+###
+
+GET http://127.0.0.1:8000
+
+<> 2022-03-23T093217.200.html
+
+###
+
+GET https://gb.ru
+Accept: application/json
+
+<> 2022-03-23T092701.200.html
+
+###
+
+GET http://gb.ru
+Host: gb.ru
+Accept: application/json
+
+<> 2022-03-23T092549.200.html
+
+###
+
