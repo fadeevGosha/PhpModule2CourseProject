@@ -4,6 +4,7 @@ namespace App\Commands;
 
 use App\Connections\ConnectorInterface;
 use App\Connections\SqlLiteConnector;
+use App\Entities\Article\Article;
 
 class CreateArticleCommandHandler implements CommandHandlerInterface
 {
@@ -20,11 +21,14 @@ class CreateArticleCommandHandler implements CommandHandlerInterface
      */
     public function handle(CommandInterface $command): void
     {
+        /**
+         * @var Article $article
+         */
         $article = $command->getEntity();
         $this->stmt->execute(
             [
                 ':author_id' => $article->getAuthorId(),
-                ':header' => $article->getHeader(),
+                ':title' => $article->getTitle(),
                 ':text' => $article->getText(),
             ]
         );
@@ -32,7 +36,7 @@ class CreateArticleCommandHandler implements CommandHandlerInterface
 
     public function getSQL(): string
     {
-        return "INSERT INTO articles (author_id, header, text) 
-        VALUES (:author_id, :header, :text)";
+        return "INSERT INTO articles (author_id, title, text) 
+        VALUES (:author_id, :title, :text)";
     }
 }

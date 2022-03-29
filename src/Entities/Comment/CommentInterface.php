@@ -8,7 +8,7 @@ use App\Entities\User\User;
 
 interface CommentInterface extends EntityInterface
 {
-    public function getAuthor(): User;
-    public function getArticle(): Article;
+    public function getAuthorId(): int;
+    public function getArticleId(): int;
     public function getText(): string;
 }

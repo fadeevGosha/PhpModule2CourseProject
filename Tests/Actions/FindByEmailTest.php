@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Tests\Actions;
 
 use App\Entities\User\User;
 use App\Exceptions\UserNotFoundException;
@@ -19,7 +19,7 @@ class FindByEmailTest extends TestCase
      */
     public function testItReturnsErrorResponseIfNoEmailProvided(): void
     {
-        $request = new Request([], []);
+        $request = new Request([], [], '');
         $userRepository = $this->getUserRepository([]);
 
         $action = new FindByEmail($userRepository);
@@ -40,7 +40,7 @@ class FindByEmailTest extends TestCase
      */
     public function testItReturnsErrorResponseIfUserNotFound(): void
     {
-        $request = new Request(['email' => 'fadee123v@start2play'], []);
+        $request = new Request(['email' => 'fadee123v@start2play'], [], '');
 
         $usersRepository = $this->getUserRepository([]);
         $action = new FindByEmail($usersRepository);
@@ -58,7 +58,7 @@ class FindByEmailTest extends TestCase
      */
     public function testItReturnsSuccessfulResponse(): void
     {
-        $request = new Request(['email' => 'fadeev@start2play.ru'], []);
+        $request = new Request(['email' => 'fadeev@start2play.ru'], [], '');
 
         $usersRepository = $this->getUserRepository([
             new User(

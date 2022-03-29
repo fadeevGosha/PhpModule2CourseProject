@@ -29,5 +29,32 @@ class Migration_version_1 implements Migrations
                         create unique index users_email_uindex on users (email);
                      "
         );
+
+        $this->connector->getConnection()->query(
+            "
+                    create table Article
+                    (
+                        id integer primary key autoincrement,
+                        author_id integer,
+                        title     varchar,
+                        text      varchar,
+                        FOREIGN KEY(author_id) REFERENCES User(id)
+                    );
+                     "
+        );
+
+        $this->connector->getConnection()->query(
+            "
+                 create table Comment
+                (
+                    id  integer primary key autoincrement,
+                    author_id integer,
+                    article_id integer,
+                    text  varchar,
+                    FOREIGN KEY(author_id) REFERENCES User(id),
+                    FOREIGN KEY(article_id) REFERENCES Article(id)
+                );
+                     "
+        );
     }
 }

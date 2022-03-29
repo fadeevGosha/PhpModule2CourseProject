@@ -11,18 +11,10 @@ use App\Http\ErrorResponse;
 use App\Http\Request;
 use App\Http\Response;
 use App\Http\SuccessfulResponse;
-use App\Repositories\UserRepository;
-use App\Repositories\UserRepositoryInterface;
 
 class CreateUser implements ActionInterface
 {
-    public function __construct(
-        private ?UserRepositoryInterface $usersRepository = null,
-        private ?CreateUserCommandHandler $createUserCommandHandler = null
-    ) {
-        $this->usersRepository = $this->usersRepository ?? new UserRepository();
-        $this->createUserCommandHandler = $this->createUserCommandHandler ?? new CreateUserCommandHandler($this->usersRepository);
-    }
+    public function __construct(private CreateUserCommandHandler $createUserCommandHandler) {}
 
     public function handle(Request $request): Response
     {

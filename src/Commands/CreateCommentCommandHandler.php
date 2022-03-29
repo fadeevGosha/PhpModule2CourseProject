@@ -4,6 +4,7 @@ namespace App\Commands;
 
 use App\Connections\ConnectorInterface;
 use App\Connections\SqlLiteConnector;
+use App\Entities\Comment\Comment;
 
 class CreateCommentCommandHandler implements CommandHandlerInterface
 {
@@ -20,19 +21,22 @@ class CreateCommentCommandHandler implements CommandHandlerInterface
      */
     public function handle(CommandInterface $command): void
     {
+        /**
+         * @var Comment $comment
+         */
         $comment = $command->getEntity();
         $this->stmt->execute(
             [
                 ':author_id' => $comment->getAuthorId(),
                 ':article_id' => $comment->getArticleId(),
-                ':comment' => $comment->getComment(),
+                ':text' => $comment->getText(),
             ]
         );
     }
 
     public function getSQL(): string
     {
-        return "INSERT INTO comments(author_id, article_id, comment) 
-        VALUES (:author_id, :article_id, :comment)";
+        return "INSERT INTO comments(author_id, article_id, text) 
+        VALUES (:author_id, :article_id, :text)";
     }
 }
