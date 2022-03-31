@@ -11,24 +11,25 @@ class Comment implements CommentInterface
 
     public function __construct(
         private int $id,
-        private User $author,
-        private Article $article,
+        private int $authorId,
+        private int $articleId,
         private string $text,
     ) {}
+
 
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function getAuthor(): User
+    public function getAuthorId(): int
     {
-        return $this->author;
+        return $this->authorId;
     }
 
-    public function getArticle(): Article
+    public function getArticleId(): int
     {
-        return $this->article;
+        return $this->articleId;
     }
 
     public function getText(): string
@@ -41,8 +42,8 @@ class Comment implements CommentInterface
         return sprintf(
             "[%d] %s %s %s",
             $this->getId(),
-            $this->getAuthor(),
-            $this->getArticle(),
+            $this->getAuthorId(),
+            $this->getArticleId(),
             $this->getText(),
         );
     }

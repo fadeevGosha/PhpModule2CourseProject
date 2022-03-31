@@ -8,14 +8,11 @@ use App\Http\ErrorResponse;
 use App\Http\Request;
 use App\Http\Response;
 use App\Http\SuccessfulResponse;
-use App\Repositories\UserRepository;
 use App\Repositories\UserRepositoryInterface;
 
 class FindByEmail implements ActionInterface
 {
-    public function __construct(private ?UserRepositoryInterface $usersRepository = null) {
-        $this->usersRepository = $this->usersRepository ?? new UserRepository();
-    }
+    public function __construct(private UserRepositoryInterface $usersRepository) {}
 
     public function handle(Request $request): Response
     {

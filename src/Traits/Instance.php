@@ -10,7 +10,9 @@ trait Instance
     public static function getInstance(): self
     {
         $class = static::class;
+
         if (!isset(self::$instances[$class])) {
+
             self::$instances[$class] =
                 new static();
         }
