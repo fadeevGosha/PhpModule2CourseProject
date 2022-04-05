@@ -2,50 +2,52 @@
 
 namespace App\Commands;
 
-use App\Connections\SqlLiteConnector;
 use App\Drivers\Connection;
 use App\Entities\User\User;
 use App\Exceptions\UserEmailExistException;
 use App\Exceptions\UserNotFoundException;
 use App\Repositories\UserRepositoryInterface;
+use Psr\Log\LoggerInterface;
+use Ramsey\Uuid\Uuid;
 
 class CreateUserCommandHandler implements CommandHandlerInterface
 {
-    private \PDOStatement|false $stmt;
-
     public function __construct(
         private UserRepositoryInterface $userRepository,
-        private Connection $connection
-    )
-    {
-        $this->stmt = $connection->prepare($this->getSQL());
-    }
+        private Connection $connection,
+        private LoggerInterface $logger
+    ){}
 
     /**
      * @throws UserEmailExistException
-     * @var CreateEntityCommand $command
+     * @var EntityCommand $command
      */
     public function handle(CommandInterface $command): void
     {
+        $this->logger->info('Create user command started');
+
         /**
          * @var User $user
          */
         $user = $command->getEntity();
         $email = $user->getEmail();
 
-
         if(!$this->isUserExists($email))
         {
-            $this->stmt->execute(
+            $this->connection->prepare($this->getSQL())->execute(
                 [
                     ':firstName' => $user->getFirstName(),
                     ':lastName' => $user->getLastName(),
                     ':email' => $email,
-                ]
+                    ':password' => hash('sha256', '1234567')
+               ]
             );
+
+            $this->logger->info("User created email: $email");
         }
         else
         {
+            $this->logger->warning("User already exists: $email");
             throw new UserEmailExistException();
         }
     }
@@ -55,6 +57,7 @@ class CreateUserCommandHandler implements CommandHandlerInterface
         try {
             $this->userRepository->getUserByEmail($email);
         } catch (UserNotFoundException) {
+            $this->logger->warning("User already exists: $email");
             return false;
         }
 
@@ -63,7 +66,7 @@ class CreateUserCommandHandler implements CommandHandlerInterface
 
     public function getSQL(): string
     {
-        return "INSERT INTO User (first_name, last_name, email) 
-        VALUES (:firstName, :lastName, :email)";
+        return "INSERT INTO User (first_name, last_name, email, password) 
+        VALUES (:firstName, :lastName, :email, :password)";
     }
 }

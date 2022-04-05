@@ -4,68 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f9acac5-2a28-4cb5-a5bd-3a9b8382b075" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/56ba8502-8a8c-473b-bfe0-a1c669671728.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d5037213-b11d-4cfd-97ac-b22d7903c09c.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-23T092549.200.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-23T092701.200.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-23T093217.200.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-23T093323.201.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-23T093331.201.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-23T093502.201.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-23T093513.201.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T071214.200.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T071243.200.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T072628.200.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T073253.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T080004.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T082807.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T082903.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T082917.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T083017.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T083048.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T083223.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T083236.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T085707.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T085750.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T085909.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T085921.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2022-03-24T090031.200.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/Actions/FindByEmailTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/Commands/CreateUserCommandTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/HelloTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/Repositories/UserRepositoryTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tests/Services/ArgumentParserServiceTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/http.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Commands/CreateArticleCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Commands/CreateCommentCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Commands/DeleteArticleCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Commands/DeleteCommentCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Commands/DeleteEntityCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Commands/DeleteUserCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/HttpException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Factories/Commands/CommandHandlerFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Factories/Commands/CommandHandlerFactoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Actions/ActionInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Actions/CreateUser.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Actions/FindByEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/ErrorResponse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Request.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Response.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/SuccessfulResponse.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Stabs/DummyUsersRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="2e0b36ce-2b3e-4aab-8434-812b678c9fee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/Dummy/DummyLogger.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/Traits/ContainerTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/Traits/LoggerTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tests/Traits/UserRepositoryTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entities/User/AuthToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/AuthException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/AuthTokenNotFoundException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/AuthTokensRepositoryException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Actions/CreateArticle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Auth/AuthenticationInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Auth/IdentificationInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Auth/JsonBodyUserEmailIdentification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Auth/JsonBodyUserIdentification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Auth/PasswordAuthentication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repositories/AuthTokensRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repositories/AuthTokensRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/course.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/course.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/56ba8502-8a8c-473b-bfe0-a1c669671728.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56ba8502-8a8c-473b-bfe0-a1c669671728.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Actions/FindByEmailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Actions/FindByEmailTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Commands/CreateUserCommandTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Commands/CreateUserCommandTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Container/DIContainerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Container/DIContainerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Repositories/UserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Repositories/UserRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli.php" beforeDir="false" afterPath="$PROJECT_DIR$/cli.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geekbrains.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/geekbrains.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/http.php" beforeDir="false" afterPath="$PROJECT_DIR$/http.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/CreateArticleCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/CreateArticleCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/CreateCommentCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/CreateCommentCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/CreateEntityCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/EntityCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Commands/CreateUserCommandHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/CreateUserCommandHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Container/DIContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Container/DIContainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/Article/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Article/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entities/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/User/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Http/Actions/CreateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Actions/CreateUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Http/Actions/FindByEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Actions/FindByEmail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Managers/EntityManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Managers/EntityManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/ArticleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/ArticleRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/CommentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/CommentRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repositories/EntityRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/EntityRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/EntityRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/EntityRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Stabs/DummyUsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stabs/DummyUsersRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +75,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="lesson3.2-test" />
+        <entry key="$PROJECT_DIR$" value="version-6" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -105,6 +94,7 @@
   <component name="PhpServers">
     <servers>
       <server host="127.0.0.1" id="91f4a524-c77b-436d-82d2-cda917f469b1" name="127.0.0.1" port="8000" />
+      <server host="localhost" id="9f25ef5d-b1f6-4bc0-9922-0984419e703b" name="localhost" port="8000" />
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1">
@@ -147,6 +137,17 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
     </include_path>
   </component>
   <component name="ProjectId" id="26hPALJcbQ2UPWS7FWzb1mO3zzc" />
@@ -158,7 +159,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Entities/User" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -168,39 +169,45 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="HTTP Request.rest-api | #1">
-    <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1" runType="Run single request">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Entities/User" />
+      <recent name="$PROJECT_DIR$/src/Http/Auth" />
+    </key>
+  </component>
+  <component name="RunManager" selected="HTTP Request.rest-api_12 | #1">
+    <configuration name="rest-api_11 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_11.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="rest-api_1 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" requestIdentifier="#1" runType="Run single request">
+    <configuration name="rest-api_12 | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_12.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="FindByEmailTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\FindByEmailTest" file="$PROJECT_DIR$/Tests/Actions/FindByEmailTest.php" scope="Class" />
+    <configuration name="FindByEmailTest (1)" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Actions\FindByEmailTest" file="$PROJECT_DIR$/Tests/Actions/FindByEmailTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="Tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <CommandLine>
-        <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="PHP 8.1" />
-        </PhpTestInterpreterSettings>
-      </CommandLine>
-      <TestRunner directory="$PROJECT_DIR$/Tests" />
+    <configuration name="UserRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Repositories\UserRepositoryTest" file="$PROJECT_DIR$/Tests/Repositories/UserRepositoryTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UserRepositoryTest.testItSavesUserToDatabase" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Repositories\UserRepositoryTest" file="$PROJECT_DIR$/Tests/Repositories/UserRepositoryTest.php" method="testItSavesUserToDatabase" scope="Method" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.rest-api | #1" />
-        <item itemvalue="HTTP Request.rest-api_1 | #1" />
-        <item itemvalue="PHPUnit.FindByEmailTest" />
-        <item itemvalue="PHPUnit.Tests" />
+        <item itemvalue="HTTP Request.rest-api_12 | #1" />
+        <item itemvalue="PHPUnit.UserRepositoryTest.testItSavesUserToDatabase" />
+        <item itemvalue="PHPUnit.UserRepositoryTest" />
+        <item itemvalue="HTTP Request.rest-api_11 | #1" />
+        <item itemvalue="PHPUnit.FindByEmailTest (1)" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8f9acac5-2a28-4cb5-a5bd-3a9b8382b075" name="Changes" comment="" />
+      <changelist id="2e0b36ce-2b3e-4aab-8434-812b678c9fee" name="Changes" comment="" />
       <created>1647872699705</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -211,6 +218,7 @@
       <workItem from="1648016008891" duration="2541000" />
       <workItem from="1648048032191" duration="987000" />
       <workItem from="1648094738855" duration="6967000" />
+      <workItem from="1649171303396" duration="6508000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 3 update">
       <created>1648015907136</created>
@@ -219,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648015907136</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="lesson 6 update">
+      <created>1648744182963</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648744182963</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,33 +242,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lesson 3 update" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 3 update" />
+    <MESSAGE value="lesson 6 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 6 update" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/http.php</url>
-          <line>31</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/http.php</url>
-          <line>34</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/http.php</url>
-          <line>61</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/http.php</url>
-          <line>76</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="http.php">
+        <watch expression="$e" language="PHP" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

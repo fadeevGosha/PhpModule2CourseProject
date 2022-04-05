@@ -7,13 +7,20 @@ class Article implements ArticleInterface
 {
     public const TABLE_NAME = 'Article';
 
+    private ?int $id = null;
+
     public function __construct(
-        private int $id,
         private int $authorId,
         private string $title,
         private string $text,
     ) {}
 
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getId(): ?int
     {

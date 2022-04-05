@@ -16,7 +16,7 @@ class CreateCommentCommandHandler implements CommandHandlerInterface
     }
 
     /**
-     * @var CreateEntityCommand $command
+     * @var EntityCommand $command
      */
     public function handle(CommandInterface $command): void
     {

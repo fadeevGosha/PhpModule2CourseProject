@@ -2,29 +2,27 @@
 
 namespace App\Commands;
 
-use App\Connections\ConnectorInterface;
-use App\Connections\SqlLiteConnector;
+use App\Drivers\Connection;
+use App\Entities\Article\Article;
 
 class CreateArticleCommandHandler implements CommandHandlerInterface
 {
-    private \PDOStatement|false $stmt;
-
-    public function __construct(private ?ConnectorInterface $connector = null)
-    {
-        $this->connector = $connector ?? new SqlLiteConnector();
-        $this->stmt = $this->connector->getConnection()->prepare($this->getSQL());
-    }
+    public function __construct(private Connection $connection){}
 
     /**
-     * @var CreateEntityCommand $command
+     * @var EntityCommand $command
      */
     public function handle(CommandInterface $command): void
     {
+        /**
+         * @var Article $article
+         */
         $article = $command->getEntity();
-        $this->stmt->execute(
+
+        $this->connection->prepare($this->getSQL())->execute(
             [
                 ':author_id' => $article->getAuthorId(),
-                ':header' => $article->getHeader(),
+                ':title' => $article->getTitle(),
                 ':text' => $article->getText(),
             ]
         );
@@ -32,7 +30,7 @@ class CreateArticleCommandHandler implements CommandHandlerInterface
 
     public function getSQL(): string
     {
-        return "INSERT INTO articles (author_id, header, text) 
-        VALUES (:author_id, :header, :text)";
+        return "INSERT INTO Article (author_id, title, text) 
+        VALUES (:author_id, :title, :text)";
     }
 }

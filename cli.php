@@ -3,7 +3,7 @@
 use App\Commands\CommandHandlerInterface;
 use App\Commands\CreateArticleCommandHandler;
 use App\Commands\CreateCommentCommandHandler;
-use App\Commands\CreateEntityCommand;
+use App\Commands\EntityCommand;
 use App\Commands\CreateUserCommandHandler;
 use App\Container\DIContainer;
 use App\Entities\Article\Article;
@@ -13,43 +13,48 @@ use App\Enums\Argument;
 use App\Exceptions\NotFoundException;
 use App\Factories\EntityManagerFactory;
 use App\Factories\EntityManagerFactoryInterface;
+use Psr\Log\LoggerInterface;
 
-try {
-    if(count($argv) < 2)
-    {
-        throw new NotFoundException('404');
-    }
-
-    if(!in_array($argv[1], Argument::getArgumentValues()))
-    {
-        throw new NotFoundException('404');
-    }
+/**
+ * @var DIContainer $container
+ */
+if(isset($container)) {
     /**
-     * @var EntityManagerFactoryInterface $entityMangerFactory
+     * @var LoggerInterface $logger
      */
-    $entityMangerFactory = new EntityManagerFactory();
-    $entity =  $entityMangerFactory->createEntityByInputArguments($argv);
+    $logger = $container->get(LoggerInterface::class);
 
-    /**
-     * @var DIContainer $container
-     */
-    if(isset($container))
-    {
+    try {
+        if (count($argv) < 2) {
+            throw new NotFoundException('404');
+        }
+
+        if (!in_array($argv[1], Argument::getArgumentValues())) {
+            throw new NotFoundException('404');
+        }
+        /**
+         * @var EntityManagerFactoryInterface $entityMangerFactory
+         */
+        $entityMangerFactory = new EntityManagerFactory();
+        $entity = $entityMangerFactory->createEntityByInputArguments($argv);
+
+
         /**
          * @var CommandHandlerInterface $commandHandler
          */
-        $commandHandler =  match ($entity::class)
-        {
+        $commandHandler = match ($entity::class) {
             Article::class => $container->get(CreateArticleCommandHandler::class),
             Comment::class => $container->get(CreateCommentCommandHandler::class),
             User::class => $container->get(CreateUserCommandHandler::class)
         };
 
-        $commandHandler->handle(new CreateEntityCommand($entity));
-    }
+        $commandHandler->handle(new EntityCommand($entity));
 
-}catch (Exception $exception)
-{
-    echo $exception->getMessage().PHP_EOL;
-    http_response_code(404);
+
+    } catch (Exception $exception) {
+        $logger->error($exception->getMessage(), ['exception' => $exception]);
+
+        echo $exception->getMessage() . PHP_EOL;
+        http_response_code(404);
+    }
 }

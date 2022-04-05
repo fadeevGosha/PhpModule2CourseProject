@@ -2,7 +2,7 @@
 
 namespace App\Http\Actions;
 
-use App\Commands\CreateEntityCommand;
+use App\Commands\EntityCommand;
 use App\Commands\CreateUserCommandHandler;
 use App\Entities\User\User;
 use App\Exceptions\HttpException;
@@ -11,11 +11,15 @@ use App\Http\ErrorResponse;
 use App\Http\Request;
 use App\Http\Response;
 use App\Http\SuccessfulResponse;
+use Psr\Log\LoggerInterface;
 
 
 class CreateUser implements ActionInterface
 {
-    public function __construct(private CreateUserCommandHandler $createUserCommandHandler) {}
+    public function __construct(
+        private CreateUserCommandHandler $createUserCommandHandler,
+        private LoggerInterface $logger
+    ) {}
 
     public function handle(Request $request): Response
     {
@@ -26,10 +30,14 @@ class CreateUser implements ActionInterface
                 $request->jsonBodyField('email'),
             );
 
-            $this->createUserCommandHandler->handle(new CreateEntityCommand($user));
-        }catch (HttpException|UserEmailExistException $exception)
+            $password = $request->jsonBodyField('password');
+            $user->setPassword($password);
+
+            $this->createUserCommandHandler->handle(new EntityCommand($user));
+        }catch (HttpException|UserEmailExistException $e)
         {
-            return new ErrorResponse($exception->getMessage());
+            $this->logger->warning($e->getMessage());
+            return new ErrorResponse($e->getMessage());
         }
 
         return new SuccessfulResponse([

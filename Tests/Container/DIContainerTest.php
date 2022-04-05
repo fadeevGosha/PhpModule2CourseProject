@@ -88,11 +88,8 @@ class DIContainerTest extends TestCase
         );
     }
 
-
-
-
     private function getDIContainer(): DIContainer
     {
-        return new DIContainer();
+        return DIContainer::getInstance();
     }
 }

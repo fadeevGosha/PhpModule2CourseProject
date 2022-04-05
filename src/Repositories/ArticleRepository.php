@@ -12,7 +12,7 @@ class ArticleRepository extends EntityRepository implements ArticleRepositoryInt
     /**
      * @throws \Exception
      */
-    public function get(int $id): Article
+    public function findById(int $id): Article
     {
         $statement = $this->connection->prepare(
             'SELECT * FROM articles WHERE id = :id'

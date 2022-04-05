@@ -1,21 +1,22 @@
 <?php
 
-namespace Tests;
+namespace Tests\Actions;
 
-use App\config\SqlLiteConfig;
-use App\Drivers\PdoConnectionDriver;
 use App\Entities\User\User;
 use App\Exceptions\UserNotFoundException;
 use App\Http\Actions\FindByEmail;
 use App\Http\ErrorResponse;
 use App\Http\Request;
 use App\Http\SuccessfulResponse;
-use App\Repositories\UserRepository;
 use App\Repositories\UserRepositoryInterface;
 use PHPUnit\Framework\TestCase;
+use Psr\Log\LoggerInterface;
+use Tests\Traits\LoggerTrait;
 
 class FindByEmailTest extends TestCase
 {
+    use LoggerTrait;
+
     /**
      * @runInSeparateProcess
      * @preserveGlobalState disabled
@@ -25,7 +26,7 @@ class FindByEmailTest extends TestCase
         $request = new Request([], [], '');
         $userRepository = $this->getUserRepository([]);
 
-        $action = new FindByEmail($userRepository);
+        $action = new FindByEmail($userRepository, $this->getLogger());
         $response = $action->handle($request);
 
         $this->assertInstanceOf(ErrorResponse::class, $response);
@@ -46,7 +47,7 @@ class FindByEmailTest extends TestCase
         $request = new Request(['email' => 'fadee123v@start2play'], [], '');
 
         $usersRepository = $this->getUserRepository([]);
-        $action = new FindByEmail($usersRepository);
+        $action = new FindByEmail($usersRepository, $this->getContainer()->get(LoggerInterface::class));
 
         $response = $action->handle($request);
         $this->assertInstanceOf(ErrorResponse::class, $response);
@@ -71,7 +72,7 @@ class FindByEmailTest extends TestCase
             ),
         ]);
 
-        $action = new FindByEmail($usersRepository);
+        $action = new FindByEmail($usersRepository, $this->getLogger());
         $response = $action->handle($request);
 
         $this->assertInstanceOf(SuccessfulResponse::class, $response);
@@ -93,7 +94,7 @@ class FindByEmailTest extends TestCase
             {
             }
 
-            public function get(int $id): User
+            public function findById(int $id): User
             {
                 throw new UserNotFoundException("Not found");
             }

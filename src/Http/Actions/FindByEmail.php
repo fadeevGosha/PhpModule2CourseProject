@@ -9,10 +9,14 @@ use App\Http\Request;
 use App\Http\Response;
 use App\Http\SuccessfulResponse;
 use App\Repositories\UserRepositoryInterface;
+use Psr\Log\LoggerInterface;
 
 class FindByEmail implements ActionInterface
 {
-    public function __construct(private UserRepositoryInterface $usersRepository) {}
+    public function __construct(
+        private UserRepositoryInterface $usersRepository,
+        private LoggerInterface $logger
+    ) {}
 
     public function handle(Request $request): Response
     {
@@ -25,6 +29,7 @@ class FindByEmail implements ActionInterface
         try {
             $user = $this->usersRepository->getUserByEmail($email);
         } catch (UserNotFoundException $e) {
+            $this->logger->warning($e->getMessage());
             return new ErrorResponse($e->getMessage());
         }
 
