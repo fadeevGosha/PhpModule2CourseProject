@@ -93,7 +93,7 @@ class FindByEmailTest extends TestCase
             {
             }
 
-            public function get(int $id): User
+            public function findById(int $id): User
             {
                 throw new UserNotFoundException("Not found");
             }

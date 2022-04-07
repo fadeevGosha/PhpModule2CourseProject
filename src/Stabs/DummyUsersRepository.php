@@ -9,7 +9,7 @@ use App\Repositories\UserRepositoryInterface;
 class DummyUsersRepository implements UserRepositoryInterface
 {
 
-    public function get(int $id): EntityInterface
+    public function findById(int $id): EntityInterface
     {
         // TODO: Implement get() method.
     }

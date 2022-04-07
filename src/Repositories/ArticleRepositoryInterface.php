@@ -2,11 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Entities\Article\Article;
-use PDOStatement;
+use App\Entities\Article\ArticleInterface;
 
-interface ArticleRepositoryInterface
+interface ArticleRepositoryInterface extends EntityRepositoryInterface
 {
-    public function get(int $id): Article;
-    public function getArticle(PDOStatement $statement, int $id): Article;
+    public function findById(int $id): ArticleInterface;
 }

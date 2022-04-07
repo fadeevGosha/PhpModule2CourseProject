@@ -2,7 +2,7 @@
 
 namespace Tests\Repositories;
 
-use App\Commands\CreateEntityCommand;
+use App\Commands\EntityCommand;
 use App\Commands\CreateUserCommandHandler;
 use App\config\SqlLiteConfig;
 use App\Connections\ConnectorInterface;
@@ -41,7 +41,7 @@ class UserRepositoryTest extends TestCase
         $this->expectException(UserEmailExistException::class);
         $this->expectExceptionMessage('Пользователь с таким email уже существует в системе');
 
-        $command = new CreateEntityCommand(
+        $command = new EntityCommand(
             new User(
                 'Georgii',
                 'Fadeev',

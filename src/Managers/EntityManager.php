@@ -3,7 +3,7 @@
 namespace App\Managers;
 
 use App\Entities\EntityInterface;
-use App\Commands\CreateEntityCommand;
+use App\Commands\EntityCommand;
 use App\Commands\DeleteEntityCommand;
 use App\Factories\Commands\CommandHandlerFactory;
 use App\Factories\Commands\CommandHandlerFactoryInterface;
@@ -22,7 +22,7 @@ class EntityManager implements EntityManagerInterface
     public function create(EntityInterface $entity):void
     {
         $commandHandler = $this->commandHandlerFactory->create($entity::class);
-        $commandHandler->handle(new CreateEntityCommand($entity));
+        $commandHandler->handle(new EntityCommand($entity));
     }
 
     public function delete(string $entityType, int $id):void

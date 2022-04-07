@@ -7,7 +7,7 @@ use App\Entities\User\User;
 
 interface ArticleInterface extends EntityInterface
 {
-    public function getAuthorId(): int;
+    public function getAuthor(): User;
     public function getTitle(): string;
     public function getText(): string;
 }

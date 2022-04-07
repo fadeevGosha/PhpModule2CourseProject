@@ -2,7 +2,7 @@
 
 namespace App\Http\Actions;
 
-use App\Commands\CreateEntityCommand;
+use App\Commands\EntityCommand;
 use App\Commands\CreateUserCommandHandler;
 use App\Entities\User\User;
 use App\Exceptions\HttpException;
@@ -24,9 +24,10 @@ class CreateUser implements ActionInterface
                 $request->jsonBodyField('firstName'),
                 $request->jsonBodyField('lastName'),
                 $request->jsonBodyField('email'),
+                $request->jsonBodyField('password'),
             );
 
-            $this->createUserCommandHandler->handle(new CreateEntityCommand($user));
+            $this->createUserCommandHandler->handle(new EntityCommand($user));
         }catch (HttpException|UserEmailExistException $exception)
         {
             return new ErrorResponse($exception->getMessage());

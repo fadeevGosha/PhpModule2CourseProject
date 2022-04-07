@@ -3,7 +3,7 @@
 use App\Commands\CommandHandlerInterface;
 use App\Commands\CreateArticleCommandHandler;
 use App\Commands\CreateCommentCommandHandler;
-use App\Commands\CreateEntityCommand;
+use App\Commands\EntityCommand;
 use App\Commands\CreateUserCommandHandler;
 use App\Container\DIContainer;
 use App\Entities\Article\Article;
@@ -45,7 +45,7 @@ try {
             User::class => $container->get(CreateUserCommandHandler::class)
         };
 
-        $commandHandler->handle(new CreateEntityCommand($entity));
+        $commandHandler->handle(new EntityCommand($entity));
     }
 
 }catch (Exception $exception)

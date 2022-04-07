@@ -1,212 +1,584 @@
-GET http://127.0.0.1:8000/user/create
-
-{
-"firstName":"Georgii",
-"lastName":"Fadeev",
-"email":"fadeev222222222222222@start2play.ru"
-}
-
-<> 2022-03-24T090031.200.json
-
-###
-
-POST http://127.0.0.1:8000/user/create
-
-{
-"firstName":"Georgii",
-"lastName":"Fadeev",
-"email":"fadeev222222222222222@start2play.ru"
-}
-
-<> 2022-03-24T085921.200.json
-
-###
-
-POST http://127.0.0.1:8000/user/create
-
-{
-"firstName":"Georgii",
-"lastName":"Fadeev",
-"email":"fadeev22222222222222@start2play.ru"
-}
-
-<> 2022-03-24T085909.200.json
-
-###
-
-POST http://127.0.0.1:8000/user/create
-
-{
-"firstName":"Georgii",
-"lastName":"Fadeev",
-"email":"fadeev22222222222222@start2play.ru"
-}
-
-<> 2022-03-24T085750.200.json
-
-###
-
-POST http://127.0.0.1:8000/user/create
-
-{
-"firstName":"Georgii",
-"lastName":"Fadeev",
-"email":"fadeev22222222222222@start2play.ru"
-}
-
-<> 2022-03-24T085707.200.json
-
-###
-
-POST http://127.0.0.1:8000/user/create
-
-{
-"firstName":"Georgii",
-"lastName":"Fadeev",
-"email":"fadeev22222222222222@start2play.ru"
-}
-
-###
-
-POST http://127.0.0.1:8000/user/create
-
-{
-"firstName":"Georgii",
-"lastName":"Fadeev",
-"email":"fadeev22222222222222@start2play.ru"
-}
-
-###
-
-GET http://127.0.0.1:8000/user/show?email=fadeev@start2play.ru
-
-<> 2022-03-24T083236.200.json
-
-###
-
-GET http://127.0.0.1:8000/user/show?email=fadeev@start2play.ru
-
-<> 2022-03-24T083223.200.json
-
-###
-
-GET http://127.0.0.1:8000/users/show?email=fadeev@start2play.ru
-
-<> 2022-03-24T083048.200.json
-
-###
-
-GET http://127.0.0.1:8000/users/show?email=fadeev@start2play.ru
-
-<> 2022-03-24T083017.200.json
-
-###
-
-GET http://127.0.0.1:8000/users/show?email=fadeev@start2play.ru
-
-<> 2022-03-24T082917.200.json
-
-###
-
-GET http://127.0.0.1:8000/users/show?email=fadeev@start2play.ru
-
-<> 2022-03-24T082903.200.json
-
-###
-
-GET http://127.0.0.1:8000/users/show?email=fadeev@start2play.ru
-
-<> 2022-03-24T082807.200.json
-
-###
-
-GET http://127.0.0.1:8000/some/path?some_parameter=123
-Some-Header: Some Value
-
-<> 2022-03-24T080004.200.json
-
-###
-
-GET http://127.0.0.1:8000/some/path?some_parameter=123
-Some-Header: Some Value
-
-<> 2022-03-24T073253.200.json
-
-###
-
-GET http://127.0.0.1:8000/some/path?some_parameter=123
-Some-Header: Some Value
-
-<> 2022-03-24T072628.200.html
-
-###
-
-GET http://127.0.0.1:8000
-
-<> 2022-03-24T071243.200.html
-
-###
-
-GET http://127.0.0.1:8000
-
-<> 2022-03-24T071214.200.html
-
-###
-
-GET http://127.0.0.1:8000
-
-###
-
-GET http://127.0.0.1:8000
-
-###
-
-GET http://127.0.0.1:8000
-
-###
-
-GET http://127.0.0.1:8000
-
-<> 2022-03-23T093513.201.html
-
-###
-
-GET http://127.0.0.1:8000
-
-<> 2022-03-23T093502.201.html
-
-###
-
-GET http://127.0.0.1:8000
-
-<> 2022-03-23T093331.201.html
-
-###
-
-GET http://127.0.0.1:8000
-
-<> 2022-03-23T093323.201.html
-
-###
-
-GET http://127.0.0.1:8000
-
-<> 2022-03-23T093217.200.html
-
-###
-
-GET https://gb.ru
+POST http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
 Accept: application/json
 
-<> 2022-03-23T092701.200.html
+{
+"title": "fasdfa",
+"text": "text"
+}
+
+<> 2022-04-06T102127.200.json
 
 ###
 
-GET http://gb.ru
-Host: gb.ru
+POST http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
 Accept: application/json
 
-<> 2022-03-23T092549.200.html
+{
+"title": "fasdfa",
+"text": "text"
+}
+
+###
+
+POST http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+"title": "fasdfa",
+"text": "text"
+}
+
+###
+
+POST http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+"title": "fasdfa",
+"text": "text"
+}
+
+###
+
+POST http://localhost:8000/article/create
+
+Cookie: XDEBUG_SESSION=PHPSTORM
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+"title": "fasdfa",
+"text": "text"
+}
+
+###
+
+POST http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+"title": "Article-1",
+"text": "Article 1 description"
+}
+
+###
+
+POST http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+"title": "Article-1",
+"text": "Article 1 description"
+}
+
+###
+
+POST http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+"title": "Article-1",
+"text": "Article 1 description"
+}
+
+###
+
+POST http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+"title": "Article-1",
+"text": "Article 1 description"
+}
+
+###
+
+POST http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+"title": "Article-1",
+"text": "Article 1 description"
+}
+
+<> 2022-04-06T095049.200.json
+
+###
+
+POST http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+"title": "Article-1",
+"text": "Article 1 description"
+}
+
+<> 2022-04-06T094242.200.json
+
+###
+
+GET http://localhost:8000/article/create
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+userId : 37,
+title: "Article-1",
+text: "Article 1 description"
+}
+
+<> 2022-04-06T093710.200.json
+
+###
+
+GET http://localhost:8000/article/crate
+Authorization: Bearer 6c8ed05cabebbc96109662186dbcb5e58891c5a1e4f61c50815174a3270dd622863edd66de34d50d
+Accept: application/json
+
+{
+userId : 37,
+title: "Article-1",
+text: "Article 1 description"
+}
+
+<> 2022-04-06T093653.200.json
+
+###
+
+POST http://localhost:8000/article/create
+Authorization: Bearer 9b9c9d435be162e2137463bee87eef96da5d0638a67c4c4cdb916e4b77f1d9c6a7858f6edc0e6904
+Accept: application/json
+
+{
+title: "Статья-1",
+text: "Описание статьи 1"
+}
+
+<> 2022-04-06T093430.200.json
+
+###
+
+POST http://localhost:8000/article/create
+Authorization: Bearer 9b9c9d435be162e2137463bee87eef96da5d0638a67c4c4cdb916e4b77f1d9c6a7858f6edc0e6904
+Accept: application/json
+
+{
+title: "Статья-1",
+text: "Описание статьи 1"
+}
+
+<> 2022-04-06T092819.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T092802.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T091832.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T091815.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T085443.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T085035.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T085010.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T084441.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T084420.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T084349.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T083808.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T083220.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T083144.200.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T083128.500.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T082948.500.json
+
+###
+
+POST http://127.0.0.1:8000/login
+
+{
+ "email": "fadeev1@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-06T082923.500.json
+
+###
+
+POST http://127.0.0.1:8000/article/create
+
+{
+ "email": "fadeev10@start2play.ru",
+ "title": "123",
+ "text": "123",
+ "password": "123456789"
+}
+
+<> 2022-04-05T220705.200.json
+
+###
+
+POST http://127.0.0.1:8000/article/create
+
+{
+ "email": "fadeev10@start2play.ru",
+ "title": "123",
+ "text": "123",
+ "password": "123456789"
+}
+
+<> 2022-04-05T220350.200.json
+
+###
+
+POST http://127.0.0.1:8000/article/create
+
+{
+ "email": "fadeev8@start2play.ru",
+ "title": "123",
+ "text": "123",
+ "password": "123456789"
+}
+
+<> 2022-04-05T215830.200.json
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+ "firstName": "Georgii",
+ "lastName": "Fadeev",
+ "email": "fadeev8@start2play.ru",
+ "password": "123456789"
+}
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+ "firstName": "Georgii",
+ "lastName": "Fadeev",
+ "email": "fadeev8@start2play.ru",
+ "password": "123456789"
+}
+
+###
+
+POST http://127.0.0.1:8000/article/create
+
+{
+ "email": "fadeev5@start2play.ru",
+ "title": "123",
+ "text": "123",
+ "password": "123456789"
+}
+
+<> 2022-04-05T214938.200.json
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+ "firstName": "Georgii",
+ "lastName": "Fadeev",
+ "email": "fadeev5@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-05T214345.200.json
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+ "firstName": "Georgii",
+ "lastName": "Fadeev",
+ "email": "fadeev4@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-05T214339.200.json
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+ "firstName": "Georgii",
+ "lastName": "Fadeev",
+ "email": "fadeev4@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-05T214333.200.json
+
+###
+
+POST http://127.0.0.1:8000/user/create
+
+{
+ "firstName": "Georgii",
+ "lastName": "Fadeev",
+ "email": "fadeev3@start2play.ru",
+ "password": "123456789"
+}
+
+<> 2022-04-05T214210.200.json
+
+###
+
+POST http://127.0.0.1:8000/article/create
+
+{
+ "email": "fadeev3@start2play.ru",
+ "password": "12345678",
+ "text": "some text",
+ "title": "some title"
+}
+
+<> 2022-04-05T214056.200.json
+
+###
+
+POST http://127.0.0.1:8000/article/create
+
+{
+ "email": "fadeev2@start2play.ru",
+ "password": "12345678",
+ "text": "some text",
+ "title": "some title"
+}
+
+<> 2022-04-05T213549.200.json
+
+###
+
+POST http://127.0.0.1:8000/article/create
+
+{
+ "email": "fadeev2@start2play.ru",
+ "password": "12312312312",
+ "text": "some text",
+ "title": "some title"
+}
+
+<> 2022-04-05T213532.200.json
+
+###
+
+POST http://127.0.0.1:8000/article/create
+
+{
+ "email": "fadeev2@start2play.ru",
+ "password": "12312312312",
+ "text": "some text",
+ "title": "some title"
+}
+
+<> 2022-04-05T213438.200.json
+
+###
+
+POST http://127.0.0.1:8000/article/create
+
+{
+ "email": "fadeev2@start2play.ru",
+ "password": "12312312312",
+ "text": "some text",
+ "title": "some title"
+}
+
+###
+
+POST http://127.0.0.1:8000/article/create
+
+{
+ "email": "fadeev2@start2play.ru",
+ "password": "12312312312",
+ "text": "some text",
+ "title": "some title"
+}
 
 ###
 

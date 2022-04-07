@@ -12,13 +12,13 @@ class CommentRepository extends EntityRepository implements CommentRepositoryInt
     /**
      * @throws CommentNotFoundException
      */
-    public function get(int $id): Comment
+    public function findById(int $id): Comment
     {
         $statement = $this->connection
-            ->prepare("SELECT * FROM comments WHERE id=:id");
+            ->prepare("SELECT * FROM Comment WHERE id=:id");
         $statement->execute(
             [
-                ':id' => (string)$id
+                ':id' => $id
             ]
         );
 

@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Drivers\Connection;
 use App\Entities\Article\Article;
 use App\Exceptions\ArticleNotFoundException;
 use PDO;
@@ -9,13 +10,22 @@ use PDOStatement;
 
 class ArticleRepository extends EntityRepository implements ArticleRepositoryInterface
 {
+    public function __construct(
+        Connection $connection,
+        private UserRepositoryInterface $userRepository
+    )
+    {
+        $this->connection = $connection;
+        parent::__construct($connection);
+    }
+
     /**
      * @throws \Exception
      */
-    public function get(int $id): Article
+    public function findById(int $id): Article
     {
         $statement = $this->connection->prepare(
-            'SELECT * FROM articles WHERE id = :id'
+            'SELECT * FROM Article WHERE id = :id'
         );
 
         $statement->execute([
@@ -25,7 +35,7 @@ class ArticleRepository extends EntityRepository implements ArticleRepositoryInt
         return $this->getArticle($statement, $id);
     }
 
-    public function getArticle(PDOStatement $statement, int $id): Article
+    private function getArticle(PDOStatement $statement, int $id): Article
     {
         $result = $statement->fetch(PDO::FETCH_OBJ);
         if ($result === false) {
@@ -34,11 +44,13 @@ class ArticleRepository extends EntityRepository implements ArticleRepositoryInt
             );
         }
 
-        return new Article(
-            id: $result->id,
-            authorId : $result->authorId,
+        $article =  new Article(
+            author : $this->userRepository->findById($result->author_id),
             title : $result->title,
             text : $result->text
         );
+
+        $article->setId($result->id);
+        return $article;
     }
 }

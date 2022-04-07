@@ -2,7 +2,6 @@
 
 namespace App\Commands;
 
-use App\Connections\SqlLiteConnector;
 use App\Drivers\Connection;
 use App\Entities\User\User;
 use App\Exceptions\UserEmailExistException;
@@ -11,19 +10,13 @@ use App\Repositories\UserRepositoryInterface;
 
 class CreateUserCommandHandler implements CommandHandlerInterface
 {
-    private \PDOStatement|false $stmt;
-
     public function __construct(
         private UserRepositoryInterface $userRepository,
-        private Connection $connection
-    )
-    {
-        $this->stmt = $connection->prepare($this->getSQL());
-    }
+        private Connection $connection){}
 
     /**
      * @throws UserEmailExistException
-     * @var CreateEntityCommand $command
+     * @var EntityCommand $command
      */
     public function handle(CommandInterface $command): void
     {
@@ -33,14 +26,14 @@ class CreateUserCommandHandler implements CommandHandlerInterface
         $user = $command->getEntity();
         $email = $user->getEmail();
 
-
         if(!$this->isUserExists($email))
         {
-            $this->stmt->execute(
+            $this->connection->prepare($this->getSQL())->execute(
                 [
                     ':firstName' => $user->getFirstName(),
                     ':lastName' => $user->getLastName(),
                     ':email' => $email,
+                    ':password' => $user->setPassword($user->getPassword())
                 ]
             );
         }
@@ -63,7 +56,7 @@ class CreateUserCommandHandler implements CommandHandlerInterface
 
     public function getSQL(): string
     {
-        return "INSERT INTO User (first_name, last_name, email) 
-        VALUES (:firstName, :lastName, :email)";
+        return "INSERT INTO User (first_name, last_name, email, password) 
+        VALUES (:firstName, :lastName, :email, :password)";
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Tests\Commands;
 
-use App\Commands\CreateEntityCommand;
+use App\Commands\EntityCommand;
 use App\Commands\CreateUserCommandHandler;
 use App\Entities\EntityInterface;
 use App\Entities\User\User;
@@ -21,7 +21,7 @@ class CreateUserCommandTest extends TestCase
         $this->expectException(UserEmailExistException::class);
         $this->expectExceptionMessage('Пользователь с таким email уже существует в системе');
 
-        $command = new CreateEntityCommand(
+        $command = new EntityCommand(
             new User(
                 'Georgii',
                 'Fadeev',
@@ -40,7 +40,7 @@ class CreateUserCommandTest extends TestCase
         $this->expectException(UserEmailExistException::class);
         $this->expectExceptionMessage('Пользователь с таким email уже существует в системе');
 
-        $command = new CreateEntityCommand(
+        $command = new EntityCommand(
             new User(
                 'Georgii',
                 'Fadeev',
@@ -55,7 +55,7 @@ class CreateUserCommandTest extends TestCase
     {
         return new class implements UserRepositoryInterface {
 
-            public function get(int $id): EntityInterface
+            public function findById(int $id): EntityInterface
             {
                 throw new UserNotFoundException("Not found");
             }
@@ -73,7 +73,7 @@ class CreateUserCommandTest extends TestCase
 
             private bool $called = false;
 
-            public function get(int $id): EntityInterface
+            public function findById(int $id): EntityInterface
             {
                 throw new UserNotFoundException("Not found");
             }
@@ -95,7 +95,7 @@ class CreateUserCommandTest extends TestCase
         $this->expectException(UserEmailExistException::class);
         $this->expectExceptionMessage('Пользователь с таким email уже существует в системе');
 
-        $command = new CreateEntityCommand(
+        $command = new EntityCommand(
             new User(
                 'Georgii',
                 'Fadeev',
