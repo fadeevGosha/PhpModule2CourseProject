@@ -1,16 +1,13 @@
 <?php
 
-namespace Tests;
+namespace Tests\Actions;
 
-use App\config\SqlLiteConfig;
-use App\Drivers\PdoConnectionDriver;
 use App\Entities\User\User;
 use App\Exceptions\UserNotFoundException;
 use App\Http\Actions\FindByEmail;
 use App\Http\ErrorResponse;
 use App\Http\Request;
 use App\Http\SuccessfulResponse;
-use App\Repositories\UserRepository;
 use App\Repositories\UserRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -67,7 +64,8 @@ class FindByEmailTest extends TestCase
             new User(
                 'Georgii',
                 'Fadeev',
-                'fadeev@start2play.ru'
+                'fadeev@start2play.ru',
+                '12345678'
             ),
         ]);
 

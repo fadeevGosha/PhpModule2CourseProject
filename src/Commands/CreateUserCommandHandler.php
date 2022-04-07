@@ -18,7 +18,7 @@ class CreateUserCommandHandler implements CommandHandlerInterface
      * @throws UserEmailExistException
      * @var EntityCommand $command
      */
-    public function handle(CommandInterface $command): void
+    public function handle(CommandInterface $command): int
     {
         /**
          * @var User $user
@@ -28,6 +28,8 @@ class CreateUserCommandHandler implements CommandHandlerInterface
 
         if(!$this->isUserExists($email))
         {
+            $this->connection->beginTransaction();
+
             $this->connection->prepare($this->getSQL())->execute(
                 [
                     ':firstName' => $user->getFirstName(),
@@ -36,6 +38,9 @@ class CreateUserCommandHandler implements CommandHandlerInterface
                     ':password' => $user->setPassword($user->getPassword())
                 ]
             );
+
+            $this->connection->commit();
+            return $this->connection->lastInsertId();
         }
         else
         {
@@ -57,6 +62,10 @@ class CreateUserCommandHandler implements CommandHandlerInterface
     public function getSQL(): string
     {
         return "INSERT INTO User (first_name, last_name, email, password) 
-        VALUES (:firstName, :lastName, :email, :password)";
+        VALUES (:firstName, :lastName, :email, :password)
+          ON CONFLICT (email) DO UPDATE SET
+               first_name = :firstName,
+               last_name = :lastName
+        ";
     }
 }

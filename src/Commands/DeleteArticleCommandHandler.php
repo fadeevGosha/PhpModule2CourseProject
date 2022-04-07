@@ -2,35 +2,23 @@
 
 namespace App\Commands;
 
-use App\Connections\ConnectorInterface;
-use App\Connections\SqlLiteConnector;
+use App\Drivers\Connection;
 
 class DeleteArticleCommandHandler implements CommandHandlerInterface
 {
-    private \PDOStatement|false $stmt;
-
-    public function __construct(private ?ConnectorInterface $connector = null)
-    {
-        $this->connector = $connector ?? new SqlLiteConnector();
-        $this->stmt = $this->connector->getConnection()->prepare($this->getSQL());
-    }
+    public function __construct(private Connection $connection){}
 
     /**
-     * @var DeleteEntityCommand $command
+     * @var EntityCommand $command
      */
     public function handle(CommandInterface $command): void
     {
-        $id = $command->getId();
-        $this->stmt->execute(
-            [
-                ':id' => (string)$id
-            ]
-        );
+        $article = $command->getEntity();
+        $this->connection->prepare($this->getSQL())->execute([':id' => $article->getId()]);
     }
-
 
     public function getSQL(): string
     {
-        return "DELETE FROM articles WHERE id = :id";
+        return "DELETE FROM Article WHERE id = :id";
     }
 }
