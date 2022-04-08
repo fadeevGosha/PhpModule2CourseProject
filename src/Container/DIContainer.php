@@ -37,7 +37,6 @@ class DIContainer implements ContainerInterface
             throw new NotFoundException("Cannot resolve type: $type");
         }
 
-
         $reflectionClass = new ReflectionClass($type);
         $constructor = $reflectionClass->getConstructor();
 
