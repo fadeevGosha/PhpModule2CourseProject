@@ -2,17 +2,12 @@
 
 namespace App\Commands;
 
-use App\Connections\ConnectorInterface;
-use App\Connections\SqlLiteConnector;
+use App\Drivers\Connection;
 
 class DeleteCommentCommandHandler implements CommandHandlerInterface
 {
-    private \PDOStatement|false $stmt;
-
-    public function __construct(private ?ConnectorInterface $connector = null)
+    public function __construct(private Connection $connection)
     {
-        $this->connector = $connector ?? new SqlLiteConnector();
-        $this->stmt = $this->connector->getConnection()->prepare($this->getSQL());
     }
 
     /**
@@ -21,7 +16,7 @@ class DeleteCommentCommandHandler implements CommandHandlerInterface
     public function handle(CommandInterface $command): void
     {
         $id = $command->getId();
-        $this->stmt->execute(
+        $this->connection->prepare($this->getSQL())->execute(
             [
                 ':id' => (string)$id
             ]
@@ -31,6 +26,6 @@ class DeleteCommentCommandHandler implements CommandHandlerInterface
 
     public function getSQL(): string
     {
-        return "DELETE FROM comments WHERE id = :id";
+        return "DELETE FROM Comment WHERE id = :id";
     }
 }

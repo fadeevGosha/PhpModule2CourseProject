@@ -4,76 +4,155 @@ namespace Tests\Commands;
 
 use App\Commands\EntityCommand;
 use App\Commands\CreateUserCommandHandler;
-use App\Entities\EntityInterface;
+use App\Commands\SymfonyCommands\CreateUser;
+use App\config\SqlLiteConfig;
+use App\Drivers\Connection;
+use App\Drivers\PdoConnectionDriver;
 use App\Entities\User\User;
 use App\Exceptions\UserEmailExistException;
 use App\Exceptions\UserNotFoundException;
 use App\Repositories\UserRepositoryInterface;
-use App\Stabs\DummyUsersRepository;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\NullOutput;
+use Tests\Traits\ContainerTrait;
+use Symfony\Component\Console\Exception\RuntimeException;
 
 class CreateUserCommandTest extends TestCase
 {
+    use ContainerTrait;
+
     public function testItThrowsAnExceptionWhenUserAlreadyExists(): void
     {
-        $createUserCommandHandler = new CreateUserCommandHandler(new DummyUsersRepository());
+        $createUserCommandHandler = $this->makeCommandHandler();
 
         $this->expectException(UserEmailExistException::class);
         $this->expectExceptionMessage('Пользователь с таким email уже существует в системе');
 
-        $command = new EntityCommand(
-            new User(
-                'Georgii',
-                'Fadeev',
-                'fadeev123@start2play.ru'
-            )
-        );
-
-        $createUserCommandHandler->handle($command);
+        $createUserCommandHandler->handle($this->makeUserCommand());
     }
-
 
     public function testItThrowsAnExceptionWhenUserAlreadyExistsByAnonymous(): void
     {
-        $createUserCommandHandler = new CreateUserCommandHandler($this->makeUsersRepository());
+        $createUserCommandHandler = $this->makeCommandHandler();
 
         $this->expectException(UserEmailExistException::class);
         $this->expectExceptionMessage('Пользователь с таким email уже существует в системе');
 
-        $command = new EntityCommand(
-            new User(
-                'Georgii',
-                'Fadeev',
-                'fadeev123@start2play.ru'
-            )
-        );
-
-        $createUserCommandHandler->handle($command);
-    }
-
-    private function makeUsersRepository(): UserRepositoryInterface
-    {
-        return new class implements UserRepositoryInterface {
-
-            public function findById(int $id): EntityInterface
-            {
-                throw new UserNotFoundException("Not found");
-            }
-
-            public function getUserByEmail(string $email): User
-            {
-                return new User('name', 'name', 'fadeev123@start2play.ru');
-            }
-        };
+        $createUserCommandHandler->handle($this->makeUserCommand());
     }
 
     public function testItSavesUserToRepository(): void
     {
-        $usersRepository = new class implements UserRepositoryInterface {
+        $userRepository = $this->makeUsersRepository();
+        $createUserCommandHandler = $this->makeCommandHandler();
+
+        $this->expectException(UserEmailExistException::class);
+        $this->expectExceptionMessage('Пользователь с таким email уже существует в системе');
+
+        $createUserCommandHandler->handle($this->makeUserCommand());
+        $this->assertTrue($userRepository->wasCalled());
+    }
+
+
+    public function testItRequiresLastName(): void
+    {
+        $command = new CreateUser($this->makeUsersRepository(), $this->makeCommandHandler());
+        $this->expectException(RuntimeException::class);
+
+        $this->expectExceptionMessage('Not enough arguments (missing: "lastName").');
+
+        $command->run(
+            new ArrayInput([
+                'email' => 'Ivan',
+                'password' => 'some_password',
+                'firstName' => 'Ivan',
+
+            ]),
+            new NullOutput()
+        );
+    }
+
+    public function testItRequiresPassword(): void
+    {
+        $command = new CreateUser($this->makeUsersRepository(), $this->makeCommandHandler());
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage(
+            'Not enough arguments (missing: "firstName, lastName, password"'
+        );
+
+        $command->run(
+            new ArrayInput([
+                'email' => 'Ivan',
+            ]),
+            new NullOutput()
+        );
+    }
+
+    public function testItRequiresFirstName(): void
+    {
+        $command = new CreateUser($this->makeUsersRepository(), $this->makeCommandHandler());
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage(
+            'Not enough arguments (missing: "firstName, lastName").'
+        );
+
+        $command->run(
+            new ArrayInput([
+                'email' => 'Ivan',
+                'password' => 'some_password',
+            ]),
+            new NullOutput()
+        );
+    }
+
+    public function testItSavesUser(): void
+    {
+        $userRepository = $this->makeUsersRepository();
+        $command = new CreateUser($userRepository, $this->makeCommandHandler());
+
+        $command->run(
+            new ArrayInput([
+                'email' => 'Ivan',
+                'password' => 'some_password',
+                'firstName' => 'Ivan',
+                'lastName' => 'Nikitin',
+            ]),
+            new NullOutput()
+        );
+
+        $this->assertTrue($userRepository->wasCalled());
+    }
+
+
+    private function makeCommandHandler(): CreateUserCommandHandler
+    {
+        $container = $this->getContainer();
+        $connection = $container
+            ->bind(Connection::class,  PdoConnectionDriver::getInstance(SqlLiteConfig::DSN))
+            ->get(Connection::class);
+
+        return new CreateUserCommandHandler($this->makeUsersRepository(), $connection);
+    }
+
+    private function makeUserCommand(): EntityCommand
+    {
+        return new EntityCommand($this->getTestUser());
+    }
+
+    private function makeUsersRepository(): UserRepositoryInterface
+    {
+        return  new class($this->getTestUser()) implements UserRepositoryInterface {
 
             private bool $called = false;
 
-            public function findById(int $id): EntityInterface
+            public function __construct(private User $user)
+            {
+            }
+
+            public function findById(int $id): User
             {
                 throw new UserNotFoundException("Not found");
             }
@@ -81,7 +160,7 @@ class CreateUserCommandTest extends TestCase
             public function getUserByEmail(string $email): User
             {
                 $this->called = true;
-                return new User('name', 'name', 'fadeev123@start2play.ru');
+                return $this->user;
             }
 
             public function wasCalled(): bool
@@ -89,21 +168,15 @@ class CreateUserCommandTest extends TestCase
                 return $this->called;
             }
         };
+    }
 
-        $createUserCommandHandler = new CreateUserCommandHandler($usersRepository);
-
-        $this->expectException(UserEmailExistException::class);
-        $this->expectExceptionMessage('Пользователь с таким email уже существует в системе');
-
-        $command = new EntityCommand(
-            new User(
-                'Georgii',
-                'Fadeev',
-                'fadeev123@start2play.ru'
-            )
+    private function getTestUser(): User
+    {
+        return new User(
+            'Georgii',
+            'Fadeev',
+            'fadeev1220@start2play.ru',
+            '12345678'
         );
-
-        $createUserCommandHandler->handle($command);
-        $this->assertTrue($usersRepository->wasCalled());
     }
 }
